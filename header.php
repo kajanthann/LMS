@@ -1,6 +1,6 @@
 <header>
         <div class="logo">
-            <img src="Logo.jpg" alt="library logo">
+            <img src="img/logo.jpg" alt="library logo">
         </div>
         <nav>
             <ul id="nav-list">
@@ -16,9 +16,3 @@
         </nav>
     </header>
     
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-    var navList = document.getElementById('nav-list');
-    navList.classList.toggle('show');
-});
-    </script>
