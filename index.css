@@ -56,7 +56,7 @@ body {
   }
 
   footer {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     padding: 20px;
   }
   
@@ -84,9 +84,9 @@ body {
     background-color: #000000;
     color: #fff;
     text-decoration: none;
-    border: #fff solid 2px;
+    border: #fff solid 3px;
     border-radius: 5px;
-    padding: 8px 20px;
+    padding: 8px 20px;  
   }
   
   footer .top-button a:hover {
@@ -111,3 +111,25 @@ body {
     color: #ff0000;
   }
  
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #000; 
+    padding: 20px; 
+}
+.container::before,
+.container::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #fff;
+    border-width: 3px; 
+}
+.container::before {
+    margin-right: 10px;
+}
+.container::after {
+    margin-left: 10px;
+}
+

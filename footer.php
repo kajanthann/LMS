@@ -1,11 +1,13 @@
-<footer>
-    
+
+<footer>   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="index.css" />
 
-<div class="top-button">
-            <hr>
+
+    <div class="top-button ">
+        <div class="container">
             <a href="#top">TOP</a>
+        </div>
         </div>
         <div class="footer-content">
             <p>© Designed and Developed by Faculty Of Computing</p>
