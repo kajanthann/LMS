@@ -10,9 +10,5 @@
                 <li><a href="">About</a></li>
                 <li><a href="">LMS</a></li>
             </ul>
-            <button id="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
         </nav>
     </header>
-    
