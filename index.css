@@ -111,7 +111,7 @@ body {
     color: #ff0000;
   }
  
-.container {
+.footer-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,17 +119,17 @@ body {
     background-color: #000; 
     padding: 20px; 
 }
-.container::before,
-.container::after {
+.footer-container::before,
+.footer-container::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #fff;
     border-width: 3px; 
 }
-.container::before {
+.footer-container::before {
     margin-right: 10px;
 }
-.container::after {
+.footer-container::after {
     margin-left: 10px;
 }
 
