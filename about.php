@@ -4,21 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
+    <?php
+        include "header.php";
+    ?>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/opening-hours">Opening hours</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/lms">LMS</a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <section id="about">
             <h1>About Us</h1>
@@ -27,9 +19,9 @@
             <p>We are committed to continuous improvement and innovation, ensuring that our library management system remains at the forefront of technology. Our team works tirelessly to enhance the user experience, providing features that make managing and using library resources simpler and more efficient.</p>
         </section>
     </main>
+    <?php
+        include "footer.php";
+    ?>
     
-    <footer>
-        <p>© Designed and Developed by Faculty Of Computing</p>
-    </footer>
     </body>
 </html>
