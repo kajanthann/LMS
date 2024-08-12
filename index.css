@@ -30,11 +30,13 @@ body {
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
+    font-size: 20px;
   }
   
   header nav ul li {
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 15px;
+    margin-bottom: 20px;
   }
   
   header nav ul li a {
@@ -57,7 +59,9 @@ body {
 
   footer {
     background-color: rgb(0, 0, 0);
-    padding: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   footer .footer-content {
@@ -104,7 +108,7 @@ body {
   footer .social-icons a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 34px;
+    font-size: 24px;
   }
   
   footer .social-icons a:hover {
@@ -117,7 +121,7 @@ body {
     justify-content: center;
     position: relative;
     background-color: #000; 
-    padding: 20px; 
+    padding: 5px; 
 }
 .footer-container::before,
 .footer-container::after {
