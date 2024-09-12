@@ -12,7 +12,7 @@
                 <li><a href="">Home</a></li>
                 <li><a href="">Opening Hours</a></li>
                 <li><a href="">Contact</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="login.php">About</a></li>
                 <li><a href="">LMS</a></li>
             </ul>
         </nav>
