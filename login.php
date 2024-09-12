@@ -15,7 +15,7 @@
 
 
     <div class="container">
-        <div class="row justify-content-center m-5 mb-5 p-1 col-md-12">
+        <div class="row justify-content-center my-5 p-1 col-md-12">
             <div class="col-md-6">
                 <a class="text-white text-decoration-none" href="userLogin.php">
                 <div class="card login-card member-card text-white mt-3">
