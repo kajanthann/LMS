@@ -4,8 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        
+body{
+    margin: 0; 
+    padding: 0; 
+    background-image: url('img/login_background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.member-card {
+background-image: url('img/user\ login.jpg'); 
+}
+
+.staff-card {
+background-image: url('img/staff\ log.jpg'); 
+}
+.card-body {
+background: rgba(0, 0, 0, 0.5); 
+padding: 20px;
+}
+
+.login-card {
+background-size: cover; 
+background-position: center;
+background-repeat: no-repeat;
+border: none;
+border-radius: 15px;
+
+transition: transform 0.2s;
+height: 400px;
+}
+
+.decorative-element {
+position: relative; /* Relative positioning for centering */
+margin-top: 40px; /* Space above the decorative element */
+height: 5px; /* Line height */
+width: 300px; /* Line width */
+background: white; /* Line color */
+border-radius: 2px; /* Rounded edges */
+
+
+}
+
+.decorative-dot {
+height: 12px; /* Dot size */
+width: 12px; /* Dot size */
+background: white; /* Dot color */
+border-radius: 50%; /* Make it circular */
+position: absolute; /* Positioning */
+top: -4px; /* Adjust position */
+left: calc(100% - 6px); /* Center horizontally */
+}
+    </style>
 </head>
 <body>
 
