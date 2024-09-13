@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
-    <link rel="stylesheet" href="Forgot.css">
+    <title>Shelf Loom || Fprgot Password</title>
     <style>
-     
+        body{
+            background-image: url('img/login_background.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .login-form {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            height: 400px;
+            
+        }
     </style>
 </head>
 <body>
@@ -18,7 +32,7 @@
 
     <div class="container">
         <div class="row  p-5  mt-4 justify-content-center">
-            <div class="col-md-6 text-white login-form ">
+            <div class="col-12 col-md-6 col-lg-4 text-white login-form ">
                 <h1 class="text-center pb-3">Forgot Pasword</h1>
                 <span class="bg-danger text-dark text-center" id="doesnt"></span>
                 <form action="" onsubmit="return validateForm()">

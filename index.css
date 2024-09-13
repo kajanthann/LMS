@@ -14,12 +14,12 @@ body {
     align-items: center;
   }
   
-  header .logo {
+ .logo {
     display: flex;
     align-items: center;
   }
   
-  header .logo img {
+  .logoimg {
     height: 50px;
     margin-right: 10px;
   }
@@ -43,8 +43,14 @@ body {
     color: #fff;
     text-decoration: none;
   }
-  
-  header nav ul li a:hover {
+
+
+  .link{
+    font: bold ;
+    
+  }
+
+  .link:hover {
     color: #ff0000;
   }
   
@@ -58,7 +64,7 @@ body {
   }
 
   footer {
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(31, 31, 31); */
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -85,7 +91,7 @@ body {
   
   
   footer .top-button a {
-    background-color: #000000;
+    /* background-color: #000000; */
     color: #fff;
     text-decoration: none;
     border: #fff solid 3px;
@@ -95,7 +101,7 @@ body {
   
   footer .top-button a:hover {
     background-color: white;
-    color: #000000;
+    /* color: #000000; */
   }
   
   footer .social-icons {
@@ -120,7 +126,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background-color: #000; 
+    /* background-color: #000;  */
     padding: 5px; 
 }
 .footer-container::before,

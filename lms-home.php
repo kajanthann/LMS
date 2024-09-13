@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
    
     <link rel="stylesheet" href="bootstrap.css" />
-    <link rel="stylesheet" href="lms-home.css" />
 
     <title>LMS | Home</title>
 </head>
+<style>
+    .div1{
+    
+    background-image:  url("img/top-view-books-with-copy-space.jpg");
+    height: 90vh;
+    width: 100%; 
+    background-repeat: no-repeat; 
+    }
+
+    .div2{
+        background-color: black;
+    }
+
+    .span1{
+        color: red;
+    }
+
+    .span2{
+        color: aliceblue;
+    }
+
+    .div3{
+    
+        border-bottom: solid 4px;
+        border-right: solid 4px;
+    
+        border-color: black;
+        padding-bottom: 5px;
+        padding: 2px;
+        border-bottom-right-radius: 10px; 
+    }
+</style>
 
 <body>
     <?php

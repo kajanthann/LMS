@@ -1,9 +1,8 @@
 
 
-
-<footer>   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="index.css" />
+<footer class="bg-dark border-bottom border-body m-0">   
 
     <div class="top-button ">
         <div class="footer-container">
