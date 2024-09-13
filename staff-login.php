@@ -42,7 +42,7 @@
             <div class="col-lg-4 col-md-6 text-white login-form">
                 <h1 class="text-center"> Staff Login</h1>
 
-             <form action="" id="loginForm" onsubmit="return validateForm()">
+             
 
                 <div class="form-group">
                     <label for="username">User Name</label>
@@ -53,21 +53,21 @@
                 
                 <div class="form-group mt-3">
                     <label for="password">Password</label>
-                    <input class="form-control mt-2" placeholder="Enter your password" type="text" name="" id="password">
+                    <input class="form-control mt-2" placeholder="Enter Password" type="text" name="" id="password">
                     <span class="error text-danger" id="passwordError"></span>
                     
                 </div>
 
                 <div class="row">
                     <div class="text-end mt-2">
-                        <a href="Forgot.php" class="text-decoration-none">Forgot Password?</a>
+                        <a href="forgot-password.php" class="text-decoration-none">Forgot Password?</a>
                     </div>
                 </div>
              
                 
-                <button class="btn btn-primary w-100 my-4">Login</button>
+                <button class="btn btn-primary w-100 my-4" onclick="staffLogin();">Login</button>
 
-             </form>
+            
             </div>
             
         </div>

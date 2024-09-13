@@ -48,8 +48,6 @@
                 <div class="text-white login-form col-12 col-lg-8 offset-lg-4">
                     <h1 class="text-center">Log In</h1>
 
-                <form action="" id="loginForm" onsubmit="return validateForm()">
-
                     <div class="form-group">
                         <label for="username">User Name</label>
                         <input class="form-control mt-2" placeholder="eg:STU2220009" type="text" name="" id="username">
@@ -75,17 +73,17 @@
                     </div>
                 
                     
-                    <button type="submit" class="btn btn-primary w-100 my-4">Login</button>
+                    <button type="submit" class="btn btn-primary w-100 my-4" onclick="memberLogin();">Login</button>
 
                     <div class="row">
                         <div class="col">
                             <p>Not registered yet?</p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a href="" class="text-decoration-none create-account">Creat an account</a>
+                            <a href="" class="text-decoration-none create-account">Create an account</a>
                         </div>
                     </div>
-                </form>
+                
                 </div>
             </div>
             <div class="d-lg-block col-12 col-lg-3 offset-3">

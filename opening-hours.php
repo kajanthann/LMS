@@ -18,6 +18,9 @@
     <!-- Bootstrap CSS -->
     <link href="bootstrap.css" rel="stylesheet">
     <style>
+        body{
+            overflow-x:hidden;
+        }
         .header {
             position: relative;
             text-align: center;

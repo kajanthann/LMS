@@ -2,13 +2,15 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-   
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">   
     <link rel="stylesheet" href="bootstrap.css" />
 
     <title>LMS | Home</title>
 </head>
 <style>
+    body{
+        overflow-x:hidden;
+    }
     .div1{
     
     background-image:  url("img/top-view-books-with-copy-space.jpg");
@@ -33,11 +35,11 @@
     
         border-bottom: solid 4px;
         border-right: solid 4px;
-    
         border-color: black;
         padding-bottom: 5px;
         padding: 2px;
         border-bottom-right-radius: 10px; 
+        margin-bottom: 100px;
     }
 </style>
 
@@ -60,7 +62,7 @@
                                 </div>
                                 <div class=" mt-5">
                                     <button class="btn btn-dark rounded-5 w-25">Register</button>
-                                    <button class="btn btn-secondary ms-5 rounded-5 w-25" >Login</button>
+                                    <button class="btn btn-secondary ms-5 rounded-5 w-25" onclick="window.location.href='login.php'">Login</button>
                                 </div>
 
                             </div>
@@ -102,7 +104,7 @@
             </div>
         </div>
 
-        <div class="row mb-5">
+        <div class="row">
             
             <div class="d-flex justify-content-end col-10 div3">
                 <img src="img/quotes.jpg" height="600px" class="rounded-4 me-5 mb-5 mt-3">

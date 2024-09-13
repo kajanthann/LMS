@@ -18,26 +18,17 @@
     }
 
     .member-card {
-    background-image: url('img/user\ login.jpg'); 
+        background-image: url('img/user\ login.jpg'); 
     }
 
     .staff-card {
-    background-image: url('img/staff\ log.jpg'); 
+        background-image: url('img/staff\ log.jpg'); 
     }
     .card-body {
-    background: rgba(0, 0, 0, 0.525); 
-    border-radius: 15px;
-    padding: 20px;
-    }
-
-    .login-card {
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 15px;
-    transition: transform 0.2s;
-    height: 400px;
+        background: rgba(0, 0, 0, 0.525); 
+        border-radius: 15px;
+        padding: 20px;
+        height: 400px;
     }
 
     .decorative-element {
@@ -72,7 +63,7 @@
             
             <div class="col-md-6 ">
                 <a class="text-white text-decoration-none" href="member-login.php">
-                    <div class="card login-card member-card text-white mt-3">
+                    <div class="card member-card text-white mt-3">
                         <div class="card-body text-center">
                             <h3 class="card-title mt-5 pt-4 fw-bold">Member Login</h3>
                             <div class="offset-3 decorative-element">
@@ -87,7 +78,7 @@
             
             <div class="col-md-6">
                 <a class="text-white text-decoration-none" href="staff-login.php">
-                <div class="card login-card staff-card text-white mt-3">
+                <div class="card staff-card text-white mt-3">
                     <div class="card-body text-center">
                         <h3 class="card-title mt-5 pt-4 fw-bold">Library Staff Login</h3>
                         <div class="offset-3 decorative-element">

@@ -1,24 +1,72 @@
-function validateForm() {
-    let isValid = true;
+function staffLogin() {
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
 
     document.getElementById('usernameError').innerText = '';
     document.getElementById('passwordError').innerText = '';
 
     if (username === '') {
         document.getElementById('usernameError').innerText = 'Username is required.';
-        isValid = false;
     }
 
     if (password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-        isValid = false;
-    } else if (password.length < 6) {
-        document.getElementById('passwordError').innerText = 'Password must be at least 8 characters.';
-        isValid = false;
+    } 
+
+    var form = new FormData();
+    form.append("username",username);
+    form.append("password",password);
+
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+        if(req.readyState == 4 && req.status == 200){
+            var resp = req.responseText;
+            if(resp.trim() === "success"){
+                window.location = "#";
+            }else{
+                alert(resp);
+            }
+        }
     }
 
-    return isValid; 
+    req.open("POST","admin-login-process.php",true);
+    req.send(form);
 }
+
+function memberLogin() {
+
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
+
+    document.getElementById('usernameError').innerText = '';
+    document.getElementById('passwordError').innerText = '';
+
+    if (username === '') {
+        document.getElementById('usernameError').innerText = 'Username is required.';
+    }
+
+    if (password === '') {
+        document.getElementById('passwordError').innerText = 'Password is required.';
+    } 
+
+    var form = new FormData();
+    form.append("username",username);
+    form.append("password",password);
+
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+        if(req.readyState == 4 && req.status == 200){
+            var resp = req.responseText;
+            if(resp.trim() === "success"){
+                window.location = "#";
+            }else{
+                alert(resp);
+            }
+        }
+    }
+
+    req.open("POST","member-login-process.php",true);
+    req.send(form);
+}
+

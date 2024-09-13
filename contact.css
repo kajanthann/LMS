@@ -1,28 +1,6 @@
-@import url('https://fonts.goog1eapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-div ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 0 15px;
-    border: 15px;
-}
-
-nav ul li{
-    list-style: none;
-    display: inline-block;
-}
-nav ul li a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 0 15px;
-    text-transform: capitalize;
+ @import url('https://fonts.goog1eapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+body{
+    overflow-x: hidden;
 }
 
 .contact{
@@ -33,23 +11,20 @@ nav ul li a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(i7.jpg) no-repeat center center/cover;
+    background: url("img/contactbg.png") no-repeat center center/cover;
     background-size: cover;
 }
-.contact .content{
-    max-width: 800px;
-    text-align: center;
-}
+
 .contact .content h1{
     font-size: 50px;
     font-weight: 500;
     color: #000;
-}
-/*.contact .content p{
+} */
+.contact .content p{
     
     font-weight: 300;
     color: #fff;
-}*/
+}
 .container{
     width: 100%;
     display: flex;
@@ -101,7 +76,7 @@ nav ul li a{
     padding: 40px;
     background: #fff;
     padding: 15px;
-    /*backdrop-filter: blur(10px);*/
+    backdrop-filter: blur(10px);
     margin-left: 50px;
     border-radius: 20px;
 }

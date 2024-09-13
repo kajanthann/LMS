@@ -1,4 +1,9 @@
 
+body{
+overflow-x: hidden;
+
+}
+
 .hero {
     background: url('img/home.jpg') no-repeat center center/cover;
     margin-top: 20px;
