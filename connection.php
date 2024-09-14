@@ -1,18 +1,27 @@
 <?php
-class Database {
-    private $host = "localhost"; // Your database host
-    private $user = "root";      // Your database username
-    private $pass = "";          // Your database password
-    private $dbname = "your_database_name"; // Your database name
 
-    public $conn;
+class Database{
 
-    public function __construct() {
-        // Establish a connection
-        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+    public static $connection;
 
-        // Check for connection errors
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+    public static function setUpConnection(){
+
+        if (!isset(Database::$connection)) {
+            Database::$connection = new mysqli("localhost", "root", "password", "db_name", "3306");
         }
     }
+
+    public static function iud($q){
+
+        Database::setUpConnection();
+        Database::$connection->query($q);
+    }
+
+    public static function search($q){
+
+        Database::setUpConnection();
+        $resultset = Database::$connection->query($q);
+        return $resultset;
+    }
+}
+?>

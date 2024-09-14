@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<<<<<<< HEAD:forgot-password.php
     <title>Shelf Loom || Fprgot Password</title>
+=======
+    <title>Forgot</title>
+    <link rel="stylesheet" href="Forgot.css">
+>>>>>>> 472d9483905c3c3435a267c84c6c4a95e0be0ac7:Forgot.php
     <style>
         body{
             background-image: url('img/login_background.png'); 
