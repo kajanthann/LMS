@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD:staff-login.php
     <title>Shelf Loom || Staff Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -15,14 +14,11 @@
             background-attachment: fixed;
             overflow-x: hidden;
         }
-
         .login-form {
             background: rgba(0, 0, 0, 0.8);
             padding: 30px;
-            border-radius: 10px;
-            
+            border-radius: 10px;           
         }
-
         .x{
             background-image: url('img/staff\ log.jpg'); 
             background-size: cover;
@@ -33,58 +29,15 @@
     </style>
 </head>
 <body class="x">
-=======
-    <title>Staff Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <style>
-        body{
-    background-image: url('img/signup.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    }
-
-
-
-    .login-form {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 10px;
-    
-    }
-
-    .x{
-    background-image: url('img/staff\ log.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    }
-    </style>
-
-</head>
-<body class="x">
-
->>>>>>> 472d9483905c3c3435a267c84c6c4a95e0be0ac7:StaffLogin.php
     <?php
         include "header.php";
     ?>
 
     <div class="container-fluid login-container">
-<<<<<<< HEAD:staff-login.php
         <h1 class="text-dark text-center m-4">Hi! Welcome Back</h1>
         <div class="row p-3 justify-content-center align-items-center">
             <div class="col-lg-4 col-md-6 text-white login-form">
-=======
-        <h1 class="text-dark text-center mt-3">Hi! Welcome Back</h1>
-        <div class="row p-4 mt-3 mb-3 justify-content-center align-items-center">
-            <div class="col-md-6 text-white login-form">
->>>>>>> 472d9483905c3c3435a267c84c6c4a95e0be0ac7:StaffLogin.php
                 <h1 class="text-center"> Staff Login</h1>
-
-             
 
                 <div class="form-group">
                     <label for="username">User Name</label>
@@ -100,13 +53,16 @@
                     
                 </div>
 
+                <div class="mt-1 bg-danger-subtle p-1 rounded-3 d-none" id="errormsgdiv">
+                    <p id="errormsg" class="text-danger text-center fw-bold mt-1"></p>
+                </div>
+
                 <div class="row">
                     <div class="text-end mt-2">
                         <a href="forgot-password.php" class="text-decoration-none">Forgot Password?</a>
                     </div>
                 </div>
              
-                
                 <button class="btn btn-primary w-100 my-4" onclick="staffLogin();">Login</button>
 
             

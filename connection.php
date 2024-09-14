@@ -7,21 +7,22 @@ class Database{
     public static function setUpConnection(){
 
         if (!isset(Database::$connection)) {
-            Database::$connection = new mysqli("localhost", "root", "password", "db_name", "3306");
+            Database::$connection = new mysqli("localhost", "root", "Dg$11029", "test_db", "3306");
         }
     }
 
-    public static function iud($q){
+    public static function iud($query){
 
         Database::setUpConnection();
-        Database::$connection->query($q);
+        Database::$connection->query($query);
     }
 
-    public static function search($q){
+    public static function search($query){
 
         Database::setUpConnection();
-        $resultset = Database::$connection->query($q);
+        $resultset = Database::$connection->query($query);
         return $resultset;
     }
 }
+
 ?>

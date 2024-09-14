@@ -8,30 +8,32 @@ function staffLogin() {
 
     if (username === '') {
         document.getElementById('usernameError').innerText = 'Username is required.';
-    }
-
-    if (password === '') {
+    }else if(password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-    } 
+    } else{
+        var form = new FormData();
+        form.append("username",username);
+        form.append("password",password);
 
-    var form = new FormData();
-    form.append("username",username);
-    form.append("password",password);
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function(){
+            if(req.readyState == 4 && req.status == 200){
+                var resp = req.responseText;
 
-    var req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-        if(req.readyState == 4 && req.status == 200){
-            var resp = req.responseText;
-            if(resp.trim() === "success"){
-                window.location = "#";
-            }else{
-                alert(resp);
+                if(resp.trim() === "success"){
+                    alert("success");
+                    //window.location();
+                
+                }else{
+                    document.getElementById("errormsg").innerHTML = resp;
+                    document.getElementById("errormsgdiv").classList.remove("d-none");
+                }
             }
         }
-    }
 
-    req.open("POST","admin-login-process.php",true);
-    req.send(form);
+        req.open("POST","staff-login-process.php",true);
+        req.send(form);
+    }   
 }
 
 function memberLogin() {
