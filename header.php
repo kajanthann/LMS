@@ -10,11 +10,19 @@
         </div>
         <nav>
             <ul id="nav-list">
+<<<<<<< Updated upstream
                 <li><a href="">Home</a></li>
                 <li><a href="">Opening Hours</a></li>
                 <li><a href="">Contact</a></li>
                 <li><a href="login.php">About</a></li>
                 <li><a href="">LMS</a></li>
+=======
+                <li><a href="home.php">Home</a></li>
+                <li><a href="openinghours.php">Opening Hours</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="lms-home.php">LMS</a></li>
+>>>>>>> Stashed changes
             </ul>
         </nav>
     </header> -->
