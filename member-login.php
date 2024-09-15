@@ -14,15 +14,12 @@
             background-attachment: fixed;
             overflow-x: hidden;
         }
-
-
         .login-form {
             background: rgba(0, 0, 0, 0.8);
             padding: 30px;
             border-radius: 10px;
             
         }
-
         .x{
             background-image: url('img/staff\ log.jpg'); 
             background-size: cover;
@@ -64,12 +61,16 @@
 
                     <div class="row mt-2">
                         <div class="col">
-                            <input type="checkbox" name="Remember me" id=""rememberme>
+                            <input type="checkbox" name="Remember me" id="rememberme">
                             <label for="rememberme">Remember me</label>
                         </div>
                         <div class="col d-flex justify-content-end">
                             <a href="Forgot.php" class="text-decoration-none forgot-password">Forgot Password?</a>
                         </div>
+                    </div>
+
+                    <div class="mt-1 bg-danger-subtle p-1 rounded-3 d-none" id="errormsgdiv">
+                        <p id="errormsg" class="text-danger text-center mt-1"></p>
                     </div>
                 
                     

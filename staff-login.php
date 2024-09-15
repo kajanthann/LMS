@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shelf Loom || Staff Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body{
             background-image: url('img/signup.jpg'); 
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="mt-1 bg-danger-subtle p-1 rounded-3 d-none" id="errormsgdiv">
-                    <p id="errormsg" class="text-danger text-center fw-bold mt-1"></p>
+                    <p id="errormsg" class="text-danger text-center mt-1"></p>
                 </div>
 
                 <div class="row">
@@ -64,10 +64,8 @@
                 </div>
              
                 <button class="btn btn-primary w-100 my-4" onclick="staffLogin();">Login</button>
-
-            
-            </div>
-            
+   
+            </div>            
         </div>
     </div>
 
