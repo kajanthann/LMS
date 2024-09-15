@@ -27,6 +27,14 @@
             height: 400px;
             
         }
+        .msg{
+    background-color: rgb(60, 178, 33);
+    font-size: 15px;
+    }
+    .paw{
+    background-color: rgb(60, 178, 33);
+    font-size: 13px;
+    }
     </style>
 </head>
 <body>
