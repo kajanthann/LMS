@@ -31,7 +31,7 @@ function showOTPField() {
 
     document.querySelector('.login-form').innerHTML = `
         <h1 class="text-center pb-3">Code Verification</h1>
-        <span class="bg-success text-dark text-center">We've sent a password reset OTP to your email</span>
+        <div class="msg py-3 text-center">We've sent a password reset OTP to your email</div>
         <form onsubmit="return validateOTP()">
             <div class="form-group mt-3">
                 <input class="form-control" type="text" placeholder="Enter your code" id="otp">
@@ -58,27 +58,12 @@ function validateOTP() {
         otpError.innerText = "You've entered an incorrect code!";
         return false;
     } else {
-        ShowNwepass();
+        window.location.href = 'CreatePassword.php';
+    return false;
     }
 }
 
-function ShowNwepass() {
-    document.querySelector('.login-form').innerHTML = `
-        <h1 class="text-center pb-3">New Password</h1>
-        <span class="bg-success text-dark text-center">Please create a new password you don't use on any other site.</span>
-        <form onsubmit="return NewPassword()">
-            <div class="form-group mt-3">
-                <input class="form-control" type="password" placeholder="Create new password" id="pass">
-                <span class="error text-danger" id="passError"></span>
-                <input class="form-control mt-4" type="password" placeholder="Confirm your password" id="pw">
-                <span class="error text-danger" id="pwError"></span>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary mt-4 w-100">Submit</button>
-            </div>
-        </form>
-    `;
-}
+
 
 function NewPassword() {
     const pass = document.getElementById('pass').value.trim();
@@ -113,7 +98,7 @@ function NewPassword() {
 
 function Showlogin(){
     document.querySelector('.login-form').innerHTML = `
-        <span class="bg-success mt-5 text-dark text-center">Your password has been changed. Now you can login with your new password.</span>
+        <div class="msg p-3 text-center">Your password has been changed. Now you can login with your new password.</div>
         <form onsubmit="return goToLoginPage()">
             <div class="form-group">
                 <button type="submit" class="btn btn-primary mt-5 w-100">Login</button>
