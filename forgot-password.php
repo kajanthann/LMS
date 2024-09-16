@@ -43,7 +43,7 @@
             <div class="col-12 col-md-6 col-lg-4 text-white login-form ">
                 <h1 class="text-center pb-3">Forgot Pasword</h1>
                 <span class="bg-danger text-dark text-center" id="doesnt"></span>
-                <form action="" onsubmit="return validateForm()">
+               
                     <div class="form-group">
                         <span class="text-center" id="doesnt"></span>
                         <label for="" >Enter your Email Address</label>
@@ -53,18 +53,18 @@
                     <div class="form-group">
                         <button class="btn btn-primary mt-4 w-100" onclick="forgotPassword();">Continue</button>
                     </div>
-                    
-                </form>
+               
             </div>
         </div>
     </div>
-
-    <script src="Forgot.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <?php
         include "footer.php";
     ?>
+    
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
