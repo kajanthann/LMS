@@ -76,10 +76,9 @@ overflow-x: hidden;
   }
   
   .news-container {
-    display: flex; 
+
       align-items: center; 
       justify-content: center; 
-      flex-direction: raw;
     gap: 20px;
   }
   

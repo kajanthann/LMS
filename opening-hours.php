@@ -24,7 +24,12 @@
         .header {
             position: relative;
             text-align: center;
-            margin-bottom: 30px;
+            height: 600px;
+            background-image:url("img/opening hours.png");
+            width: 100%; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-position: center; 
         }
         .header img {
             width: 100%;
@@ -32,8 +37,8 @@
         }
         .header h1 {
             position: absolute;
-            bottom: 10px;
-            right: 20px;
+            bottom: 6%;
+            right: 30%;
             font-size: 2em;
             color: #333;
             margin: 0;
@@ -56,7 +61,6 @@
 
 <?php include "header.php"; ?>
     <div class="header">
-        <img src="<?php echo $image_path; ?>" alt="Clock Image" class="img-fluid"> <!-- PHP to dynamically insert the image path -->
         <h1>Opening Hours</h1>
     </div>
     <div class="container">
@@ -71,7 +75,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="#">Opening Hours</a></td>
+                    <td>Opening Hours</a></td>
                     <td><?php echo $weekdays_opening_hours; ?></td> <!-- PHP to dynamically insert weekdays opening hours -->
                     <td><?php echo $weekends_opening_hours; ?></td> <!-- PHP to dynamically insert weekends opening hours -->
                 </tr>
@@ -88,26 +92,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="#">Lending Books</a></td>
+                    <td class="text-primary">Lending Books</a></td>
                     <td><?php echo $weekdays_lending_hours; ?></td> <!-- PHP to dynamically insert weekdays lending hours -->
                     <td><?php echo $weekends_lending_hours; ?></td> <!-- PHP to dynamically insert weekends lending hours -->
                 </tr>
             </tbody>
         </table>
 
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center mb-5">
             <thead>
                 <tr>
-                    <th>Returning Books</th>
+                    <th></th>
                     <th>weekdays</th>
                     <th>weekends</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
+                    <td class="text-primary">Returning Books</td>
                     <td><?php echo $weekdays_returning_hours; ?></td> <!-- PHP to dynamically insert weekdays returning hours -->
-                    <td><?php echo $weekends_returning_hours; ?></td> <!-- PHP to dynamically insert weekends returning hours -->
+                    <td class="mb-5"><?php echo $weekends_returning_hours; ?></td> <!-- PHP to dynamically insert weekends returning hours -->
                 </tr>
             </tbody>
         </table>

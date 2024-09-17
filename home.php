@@ -44,18 +44,18 @@
 
     <section class="last-news-update">
     <h2>Latest News and Updates</h2>
-    <div class="news-container">
-        <div class="news-item">
+    <div class="news-container d-lg-flex">
+        <div class="news-item col-12 col-lg-4">
             <div class="news-date">NOV 16</div>
             <img src="img/home -goal.jpg" alt="News Image 1">
             <p>Text here</p>
         </div>
-        <div class="news-item">
+        <div class="news-item col-12 col-lg-4">
             <div class="news-date">NOV 16</div>
             <img src="img/home -goal.jpg" alt="News Image 2">
             <p>Text here</p>
         </div>
-        <div class="news-item">
+        <div class="news-item col-12 col-lg-4">
             <div class="news-date">NOV 16</div>
             <img src="img/home -goal.jpg" alt="News Image 3">
             <p>Text here</p>

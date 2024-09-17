@@ -11,13 +11,14 @@
     body{
         overflow-x:hidden;
     }
-    .div1{
-    
-    background-image:  url("img/top-view-books-with-copy-space.jpg");
+    .div1 {
+    background-image: url("img/test.jpg");
     height: 90vh;
     width: 100%; 
-    background-repeat: no-repeat; 
-    }
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+}
 
     .div2{
         background-color: black;
@@ -39,7 +40,7 @@
         padding-bottom: 5px;
         padding: 2px;
         border-bottom-right-radius: 10px; 
-        margin-bottom: 100px;
+        margin-bottom: 20px;
     }
 </style>
 
@@ -52,7 +53,7 @@
         <div class="row">
             <div class="col-12 div1">
                 <div class="row vh-100 d-flex justify-content-center align-items-center">
-                    <div class="col-6 offset-6">
+                    <div class="col-12 col-lg-6 offset-lg-6">
                         <div class="row ">
                             <div class="text-center">
                                 <div class="col-12">
@@ -104,7 +105,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row d-none d-md-block">
             
             <div class="d-flex justify-content-end col-10 div3">
                 <img src="img/quotes.jpg" height="600px" class="rounded-4 me-5 mb-5 mt-3">
