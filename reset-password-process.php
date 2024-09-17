@@ -15,8 +15,8 @@ if(empty($vcode)){
     if($num > 0){ 
         $row = $rs->fetch_assoc(); 
         Database::iud("UPDATE `member` SET `password` = '$pw', `vcode` = NULL WHERE `id` = '".$row["id"]."' "); 
-        echo("success"); 
+        echo("Your password has been reset successfully."); 
     }else{ 
-        echo($num); 
+        echo("User not found"); 
     } 
 }

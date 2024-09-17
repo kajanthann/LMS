@@ -40,6 +40,7 @@ function memberLogin() {
 
     var username = document.getElementById('username').value.trim();
     var password = document.getElementById('password').value.trim();
+    var rememberMe = document.getElementById("rememberme");
 
     document.getElementById('usernameError').innerText = '';
     document.getElementById('passwordError').innerText = '';
@@ -52,6 +53,7 @@ function memberLogin() {
         var form = new FormData();
         form.append("username",username);
         form.append("password",password);
+        form.append("rememberme", rememberMe.checked);
     
         var req = new XMLHttpRequest();
         req.onreadystatechange = function(){
@@ -101,8 +103,6 @@ function resetPassword(){
 
     if (pw === '') {
         pwError.innerText = 'Password is required.';
-    } else if (pw.length < 6) {
-        pwError.innerText = 'Password must be at least 6 characters.';
     } else if (cpw === '') {
         cpwError.innerText = 'Password confirmation is required.';
     } else if (pw !== cpw) {
@@ -116,13 +116,13 @@ function resetPassword(){
         form.append("pw",pw); 
         form.append("cpw",cpw); 
         form.append("vcode",vcode); 
-        alert(vcode);
 
         var req = new XMLHttpRequest(); 
         req.onreadystatechange = function(){ 
             if(req.readyState == 4 && req.status == 200){ 
                 var resp = req.responseText; 
                 alert(resp); 
+                window.location="member-login.php";
             } 
         } 
         req.open("POST","reset-password-process.php",true); 

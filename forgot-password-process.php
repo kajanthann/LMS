@@ -14,7 +14,6 @@ $email = $_GET["email"];
 if(empty($email)){ 
     echo("Please enter your email address"); 
 }else{ 
-   echo("mkl");
 
     $rs = Database::search("SELECT * FROM `member` WHERE `email`='$email'"); 
     $num = $rs->num_rows; 
@@ -23,7 +22,8 @@ if(empty($email)){
  
         $row = $rs->fetch_assoc(); 
         $vcode = uniqid(); 
- 
+        $name = $row["fname"]." ".$row["lname"];
+
         Database::iud("UPDATE `member` SET `vcode` = '$vcode' WHERE `id`='".$row["id"]."'"); 
         $mail = new PHPMailer(true); 
         try { 
@@ -39,50 +39,31 @@ if(empty($email)){
             $mail->isHTML(true); 
             $mail->Subject = 'Reset Your account password'; 
             $mail->Body = ' 
- 
-<table style = "width: 100%; font-family: sans-serif;"> 
- <tbody> 
-    <tr> 
-      <td align = "center"> 
- 
-         <table style = "max-width: 600px;"> 
-            <tr> 
-               <td align="center"> 
-                  <a href="#" style = "font-size: 35px; color: black; font-weight: bold; text-decora on: none;">Super 
-Mart</a> 
-                  <hr> 
-               </td> 
-            </tr> 
- 
-            <tr> 
-               <td> 
-                  <h1 style = "font-size: 25px; font-weight: bold; line-height: 45px;">Reset Your Password</h1> 
-                  <p style = "margin-bo om: 24px;">Click the below bu on to reset your password</p> 
- 
-                  <div> 
-                     <a href="http://localhost/LMS/reset-password.php?code='.$vcode.'" style="display: inline-block; 
-background-color: #ff6d33; color:white; border-radius: 8px; padding: 15px; text-decora on: none;"><span>Reset 
-Password</span></a> 
-                  </div> 
-                  <p style="margin-top: 24px;">If you didn\'t requested to reset password, please ignore this email</p> 
-                  <hr> 
-               </td> 
-            </tr> 
-            <tr> 
-               <td aign="center"> 
-                  <p align = "center">&copy; 2024 SuperMart.lk </p> 
-               </td> 
-            </tr> 
-         </table> 
- 
-      </td> 
-    </tr> 
- </tbody> 
- 
-</table>'; 
+
+
+               <h1 style="padding-top: 30px;">Reset your password</h1>
+               <p style = "font-size: 30px; color: black; font-weight: bold; text-align: center;">Shelf Loom</p> 
+
+               <div style="max-width: 600px; margin: 0 auto; padding: 20px; text-align: left;">
+                  <p>Dear '.$name.',</p>
+                  <p>We received a request to reset the password for your account. If you initiated this request, please click the button below to create a new password.</p>
+                  <div style="margin-bottom: 10px;">
+                        <a href="http://localhost/LMS/reset-password.php?code='.$vcode.'">Click here to reset your password</a>
+                  </div>
+                  <div>
+                        <p style="margin: 0px;">If you have problems or questions regarding your account, please contact us.</p>
+                        <p style="margin: 0px;">Call: [tel_num]</p>
+                  </div>
+
+                  <div>
+                        <p style="margin-bottom: 0px;">Best regards,</p>
+                        <p style="margin: 0px;">Shelf Loom</p>
+                  </div>
+               </div>';
+
  
             $mail->send(); 
-            echo 'Check the email'; 
+            echo 'Check the email to reset your password'; 
         } catch (Exception $e) { 
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
         } 

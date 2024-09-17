@@ -45,16 +45,32 @@
                 <div class="text-white login-form col-12 col-lg-8 offset-lg-4">
                     <h1 class="text-center">Log In</h1>
 
+                    <?php
+
+                            $username = "";
+                            $password = "";
+
+                            if (isset($_COOKIE["username"])) {
+                                $username = $_COOKIE["username"];
+                            }
+
+                            if (isset($_COOKIE["password"])) {
+                                $password = $_COOKIE["password"];
+                            }
+
+                    ?>
+
+
                     <div class="form-group">
                         <label for="username">User Name</label>
-                        <input class="form-control mt-2" placeholder="eg:STU2220009" type="text" name="" id="username">
+                        <input class="form-control mt-2" placeholder="eg:STU2220009" type="text" name="" id="username" value="<?php echo $username; ?>" >
                         <span class="error text-danger" id="usernameError"></span>
                         
                     </div>
                     
                     <div class="form-group mt-3">
                         <label for="password">Password</label>
-                        <input class="form-control mt-2" placeholder="Enter your password" type="text" name="" id="password">
+                        <input class="form-control mt-2" placeholder="Enter your password" type="text" name="" id="password" value="<?php echo $password; ?>" >
                         <span class="error text-danger" id="passwordError"></span>
                         
                     </div>
