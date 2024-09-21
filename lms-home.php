@@ -62,7 +62,7 @@
 
                                 </div>
                                 <div class=" mt-5">
-                                    <button class="btn btn-dark rounded-5 w-25">Register</button>
+                                    <button class="btn btn-dark rounded-5 w-25" onclick="window.location.href='register.php'">Register</button>
                                     <button class="btn btn-secondary ms-5 rounded-5 w-25" onclick="window.location.href='login.php'">Login</button>
                                 </div>
 

@@ -130,208 +130,126 @@ function resetPassword(){
     }
   } 
 
-  //registation Start part
-  
-function MemberId() {
-    var membershipID = document.getElementById("membershipID").value;
-    var nicNumber = document.getElementById("NICNumber").value;
 
-    if (membershipID === "" || nicNumber === "") {
-        if (membershipID === "") {
-            document.getElementById("memerror").innerText = "Please enter Membership ID";
-        } else {
-            document.getElementById("memerror").innerText = "";
-        }
+function register() {
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
 
-        if (nicNumber === "") {
-            document.getElementById("nicnumerror").innerText = "Please enter NIC Number";
-        } else {
-            document.getElementById("nicnumerror").innerText = "";
-        }
+    btn1.addEventListener('click', function() {
+        var memId = document.getElementById("membershipID").value;
+        var nic = document.getElementById("NICNumber").value;
 
-        return false; // Prevents form submission
-    } else{
-        document.getElementById("Box1").classList.add("d-none");
-        document.getElementById("Box2").classList.remove("d-none");
-        return false;
-    }
-
-    // If the form is valid, allow submission
-    return true;
-}
-
-
-
-function addressBox() {
-    var Address = document.getElementById("Address").value;
-    var PhoneNumber = document.getElementById("PhoneNumber").value;
-
-    if (Address === "" || PhoneNumber === "") {
-        if (Address === "") {
-            document.getElementById("Addresserror").innerText = "Please enter Address";
-        } else {
-            document.getElementById("Addresserror").innerText = "";
-        }
-
-        if (PhoneNumber === "") {
-            document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
-        } else {
-            document.getElementById("Pnumerror").innerText = "";
-        }
-
-        return false; // Prevents form submission
-    } else{
-        document.getElementById("Box2").classList.add("d-none");
-        document.getElementById("Box3").classList.remove("d-none");
-        return false;
-    }
-
-    // If the form is valid, allow submission
-    return true;
-}
-
-//otp
-// Function to validate OTP input fields
-function validateOTP() {
-    let otp = '';
-    for (let i = 1; i <= 6; i++) {
-        const value = document.getElementById('otp' + i).value;
-        if (value === '') {
-            alert('Please enter the full OTP.');
-            return false;
-        }
-        otp += value;
-    }
+        if (memId === "" || nic === "") {
+            if (memId === "") {
+                document.getElementById("memerror").innerText = "Please enter Membership ID";
+            } else {
+                document.getElementById("memerror").innerText = "";
+            }
     
-    // If OTP is valid (6 digits), you can proceed with your logic here
-    alert("OTP entered: " + otp); // You can replace this with your form submission logic
-    return true;
-}
-
-// Timer countdown function
-let countdownTime = 120; // OTP expires in 1m 52s (112 seconds)
-let timerInterval = setInterval(function () {
-    let minutes = Math.floor(countdownTime / 60);
-    let seconds = countdownTime % 60;
-
-    if (seconds < 10) seconds = '0' + seconds;
-    document.getElementById('timer').textContent = `${minutes}m : ${seconds}s`;
-
-    if (countdownTime === 0) {
-        clearInterval(timerInterval);
-        document.getElementById('timer').textContent = 'OTP expired';
-        alert('Your OTP has expired, please request a new one.');
-    }
-    countdownTime--;
-}, 1000);
-
-// Function to simulate OTP resend
-document.getElementById('resend-link').addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent the link from doing anything
-
-    // Reset the timer
-    countdownTime = 120;
-    clearInterval(timerInterval); // Stop the current timer
-    timerInterval = setInterval(function () {
-        let minutes = Math.floor(countdownTime / 60);
-        let seconds = countdownTime % 60;
-
-        if (seconds < 10) seconds = '0' + seconds;
-        document.getElementById('timer').textContent = `${minutes}m : ${seconds}s`;
-
-        if (countdownTime === 0) {
-            clearInterval(timerInterval);
-            document.getElementById('timer').textContent = 'OTP expired';
-            alert('Your OTP has expired, please request a new one.');
-        }
-        countdownTime--;
-    }, 1000);
-
-    // Optionally, you can show a message that a new OTP has been sent
-    alert("A new OTP has been sent to your mobile.");
-});
-
-// Function to change to the next step after OTP validation
-function change() {
-    if (validateOTP()) {
-        // Hide OTP box and show the next step (assuming Box4 is your next step)
-        document.getElementById("Box3").classList.add("d-none");
-        document.getElementById("Box4").classList.remove("d-none");
-    }
-}
-
-//otp
-
-function EmailBox() {
-    var Email = document.getElementById("Email").value;
-    var Rece = document.getElementById("Rece").value;
-
-    if (Email === "" || Rece === "") {
-        if (Email === "") {
-            document.getElementById("Emailerror").innerText = "Please enter a valid email address";
-        } else {
-            document.getElementById("Emailerror").innerText = "";
-        }
-
-        if (Rece === "") {
-            document.getElementById("Receerror").innerText = "Please Upload the file";
-        } else {
-            document.getElementById("Receerror").innerText = "";
-        }
-
-        return false; // Prevents form submission
-    } else{
-        document.getElementById("Box4").classList.add("d-none");
-        document.getElementById("Box5").classList.remove("d-none");
-        return false;
-    }
-
-    // If the form is valid, allow submission
-    return true;
-}
-
-function RegisterBox(){
-    var Fname = document.getElementById("Fname").value;
-    var Lname = document.getElementById("Lname").value;
-    var Pword = document.getElementById("Pword").value;
-    var Cpword = document.getElementById("Cpword").value;
-
-    if (Fname === "" || Lname === "" || Pword === "" || Cpword === "") {
-        if (Fname === "") {
-            document.getElementById("Ferror").innerText = "First name is required";
-        } else {
-            document.getElementById("Ferror").innerText = "";
-        }
-
-        if (Lname === "") {
-            document.getElementById("Lerror").innerText = "Last name is required";
-        } else {
-            document.getElementById("Lerror").innerText = "";
-        }
-
-        if (Pword === "") {
-            document.getElementById("Perror").innerText = "Password is required";
-        } else if(Pword.length < 6) {
-            document.getElementById("Perror").innerText = "Password must be at least 6 characters.";
+            if (nic === "") {
+                document.getElementById("nicnumerror").innerText = "Please enter NIC Number";
+            } else {
+                document.getElementById("nicnumerror").innerText = "";
+            }
+    
+            
         } else{
-            document.getElementById("Perror").innerText = "";
+            document.getElementById("Box1").classList.add("d-none");
+            document.getElementById("Box2").classList.remove("d-none");
+            
         }
+    });
 
-        if (Cpword === "") {
-            document.getElementById("Cperror").innerText = "Password confirmation is required";
-        } else if(Pword !== Cpword) {
-            document.getElementById("Cperror").innerText = "Passwords do not match";
-        } else {
-            document.getElementById("Cperror").innerText = "";
-        }
+    btn2.addEventListener('click', function() {
+        var address = document.getElementById("address").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
 
-        return false; 
-    } else{
+        if (address === "" || phoneNumber === "") {
+                    if (address === "") {
+                        document.getElementById("Addresserror").innerText = "Please enter Address";
+                    } else {
+                        document.getElementById("Addresserror").innerText = "";
+                    }
+            
+                    if (phoneNumber === "") {
+                        document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
+                    } else {
+                        document.getElementById("Pnumerror").innerText = "";
+                    }
+            
+                    
+                } else{
+                    document.getElementById("Box2").classList.add("d-none");
+                    document.getElementById("Box3").classList.remove("d-none");
+                    
+                }
+
+    });
+
+    btn3.addEventListener('click', function() {
+        var email = document.getElementById("email").value;
         
-    }
 
-    // If the form is valid, allow submission
-    return true;
+                if (email === "") {
+                    if (email === "") {
+                        document.getElementById("Emailerror").innerText = "Please enter a valid email address";
+                    } else {
+                        document.getElementById("Emailerror").innerText = "";
+                    }
+            
+                   
+                } else{
+                    document.getElementById("Box3").classList.add("d-none");
+                    document.getElementById("Box4").classList.remove("d-none");
+                  
+                }
+
+    });
 }
+
+// function RegisterBox(){
+//     var Fname = document.getElementById("Fname").value;
+//     var Lname = document.getElementById("Lname").value;
+//     var Pword = document.getElementById("Pword").value;
+//     var Cpword = document.getElementById("Cpword").value;
+
+//     if (Fname === "" || Lname === "" || Pword === "" || Cpword === "") {
+//         if (Fname === "") {
+//             document.getElementById("Ferror").innerText = "First name is required";
+//         } else {
+//             document.getElementById("Ferror").innerText = "";
+//         }
+
+//         if (Lname === "") {
+//             document.getElementById("Lerror").innerText = "Last name is required";
+//         } else {
+//             document.getElementById("Lerror").innerText = "";
+//         }
+
+//         if (Pword === "") {
+//             document.getElementById("Perror").innerText = "Password is required";
+//         } else if(Pword.length < 6) {
+//             document.getElementById("Perror").innerText = "Password must be at least 6 characters.";
+//         } else{
+//             document.getElementById("Perror").innerText = "";
+//         }
+
+//         if (Cpword === "") {
+//             document.getElementById("Cperror").innerText = "Password confirmation is required";
+//         } else if(Pword !== Cpword) {
+//             document.getElementById("Cperror").innerText = "Passwords do not match";
+//         } else {
+//             document.getElementById("Cperror").innerText = "";
+//         }
+
+//         return false; 
+//     } else{
+        
+//     }
+
+//     // If the form is valid, allow submission
+//     return true;
+// }
 
 //  //registation End part
