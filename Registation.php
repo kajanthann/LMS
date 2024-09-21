@@ -139,9 +139,10 @@
         <div class="container p-4 my-2 col-md-6">
             <div class="row">
                 <div class="text-white login-form">
-                    <h5 class="mb-1">Enter <b>membership ID</b> and <b>NIC Number</b> :</h5>
+                <div id="Box1">
+                        <h5 class="mb-1">Enter <b>membership ID</b> and <b>NIC Number</b> :</h5>
     
-                    <form action="" id="loginForm" onsubmit="return MemberId()">
+                        <form action="" id="loginForm" onsubmit="return MemberId()">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="membershipID" class="my-2">Membership ID :</label>
@@ -154,10 +155,134 @@
                                 <div id="nicnumerror" class="text-danger"></div>
                             </div>
                         </div>
-                        <div class="text-end mt-4">
-                            <button type="submit" class="bt text-white ">NEXT</button>
+                            <div class="text-end mt-4">
+                                <button  id="btn1" type="submit" class="bt text-white" onsubmit="return MemberId()">NEXT</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="Box2" class="d-none">
+                        <h5 class="mb-1">Enter <b>Address</b> and <b>Phone Number</b> :</h5>
+    
+                    <form action="" id="loginForm" onsubmit="return addressBox()">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="Address" class="my-2">Address :</label>
+                                <input type="text" class="form-control" id="Address" placeholder="Enter Address">
+                                <div id="Addresserror" class="text-danger"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="PhoneNumber" class="my-2">Phone Number :</label>
+                                <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number">
+                                <div id="Pnumerror" class="text-danger"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="bt" id="backButton1">BACK</button> <!-- Back button -->
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <button id="btn2" type="submit" class="bt">NEXT</button> <!-- Submit form button -->
+                            </div>
                         </div>
                     </form>
+                    </div>
+
+                    <div id="Box3" class="d-none">
+                        <h5 class="mb-2">Enter OTP</h5>
+                        <p>We have sent an OTP to your mobile number <span class="phone-number">071xxxxxxx</span></p>
+                        <p><span class="otp-timer text-warning">OTP expires in <span id="timer">1m : 52s</span></span></p>
+    
+                    <form action="" id="loginForm" onsubmit="return validateOTP()">
+                        <div class="otp-inputs d-flex justify-content-between mb-4">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp1">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp2">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp3">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp4">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp5">
+                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp6">
+                        </div>
+
+                        <p class="resend-text">Don't receive? <a href="#" class="" id="resend-link">Resend OTP</a></p>
+
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="bt" id="backButton2">BACK</button> <!-- Back button -->
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <button id="btn3" type="submit" class="bt" >NEXT</button> <!-- Submit form button -->
+                            </div>
+                        </div>
+                        
+                    </form>
+                    </div>
+
+                    <div id="Box4" class="d-none">
+                        <h5 class="mb-1">Enter your <b>Email</b> and upload your <b>Receipt</b> :</h5>
+                
+                        <form action="" id="loginForm" onsubmit="return EmailBox()">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="membershipID" class="my-2">Email :</label>
+                                <input type="text" class="form-control" id="Email" placeholder="Enter Email">
+                                <div id="Emailerror" class="text-danger"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nicNumber" class="my-2">Upload Receipt :</label>
+                                <input type="file" class="form-control" id="Rece" placeholder="">
+                                <div id="Receerror" class="text-danger"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="bt" id="backButton3">BACK</button> <!-- Back button -->
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <button id="btn4" type="submit"  class="bt">NEXT</button> <!-- Submit form button -->
+                                </div>
+                            </div>>
+                        </form>
+                    </div>
+
+                    <div id="Box5" class="d-none">
+                        <form action="" id="loginForm" onsubmit="return RegisterBox()">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="Address" class="my-1">First Name:</label>
+                                    <input type="text" class="form-control" id="Fname" placeholder="Enter Address">
+                                    <div id="Ferror" class="text-danger"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="PhoneNumber" class="my-1">Last Name:</label>
+                                    <input type="file" class="form-control" id="Lname" placeholder="Enter Phone Number">
+                                    <div id="Lerror" class="text-danger"></div>
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="Address" class="my-1">Password:</label>
+                                    <input type="password" class="form-control" id="Pword" placeholder="Enter Address">
+                                    <div id="Perror" class="text-danger"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="PhoneNumber" class="my-1">Conform Password:</label>
+                                    <input type="password" class="form-control" id="Cpword" placeholder="Enter Phone Number">
+                                    <div id="Cperror" class="text-danger"></div>
+                                </div>
+                            </div>
+    
+                            <div>
+                                <input type="checkbox">
+                                <label for="">I agree the thrms and conditions</label>
+                            </div>
+    
+                            <div class="row text-center">
+                                <div class="col text-white">
+                                    <button id="btn5" type="submit"  class="bt mt-2">Register</button>
+                                    <div>Need help?<a class="txt text-decoration-none" href="">contract us</a></div>
+                                    <div>Already a member? <a class="txt text-decoration-none" href="">login here</a></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

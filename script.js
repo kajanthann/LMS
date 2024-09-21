@@ -151,7 +151,9 @@ function MemberId() {
 
         return false; // Prevents form submission
     } else{
-        ShowAddress();
+        document.getElementById("Box1").classList.add("d-none");
+        document.getElementById("Box2").classList.remove("d-none");
+        return false;
     }
 
     // If the form is valid, allow submission
@@ -159,35 +161,8 @@ function MemberId() {
 }
 
 
-function ShowAddress(){
-    document.querySelector('.login-form').innerHTML=`
-                    <h5 class="mb-1">Enter <b>Address</b> and <b>Phone Number</b> :</h5>
-    
-                    <form action="" id="loginForm" onsubmit="return address()">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="Address" class="my-2">Address :</label>
-                                <input type="text" class="form-control" id="Address" placeholder="Enter Address">
-                                <div id="Addresserror" class="text-danger"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="PhoneNumber" class="my-2">Phone Number :</label>
-                                <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number">
-                                <div id="Pnumerror" class="text-danger"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="bt" id="backButton">BACK</button> <!-- Back button -->
-                            </div>
-                            <div class="col d-flex justify-content-end">
-                                <button type="submit" class="bt">NEXT</button> <!-- Submit form button -->
-                            </div>
-                        </div>
-                    </form>
-                    `;
-}
-function address() {
+
+function addressBox() {
     var Address = document.getElementById("Address").value;
     var PhoneNumber = document.getElementById("PhoneNumber").value;
 
@@ -206,42 +181,157 @@ function address() {
 
         return false; // Prevents form submission
     } else{
-        ShowOtp();
+        document.getElementById("Box2").classList.add("d-none");
+        document.getElementById("Box3").classList.remove("d-none");
+        return false;
     }
 
     // If the form is valid, allow submission
     return true;
 }
 
-function ShowOtp(){
-    document.querySelector('.login-form').innerHTML=`
-                    <h5 class="mb-2">Enter OTP</h5>
-                    <p>We have sent an OTP to your mobile number <span class="phone-number">071xxxxxxx</span></p>
-                    <p><span class="otp-timer text-warning">OTP expires in <span id="timer">1m : 52s</span></span></p>
+//otp
+// Function to validate OTP input fields
+function validateOTP() {
+    let otp = '';
+    for (let i = 1; i <= 6; i++) {
+        const value = document.getElementById('otp' + i).value;
+        if (value === '') {
+            alert('Please enter the full OTP.');
+            return false;
+        }
+        otp += value;
+    }
     
-                    <form action="" id="loginForm" onsubmit="return MemberId()">
-                        <div class="otp-inputs d-flex justify-content-between mb-4">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp1">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp2">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp3">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp4">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp5">
-                            <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp6">
-                        </div>
+    // If OTP is valid (6 digits), you can proceed with your logic here
+    alert("OTP entered: " + otp); // You can replace this with your form submission logic
+    return true;
+}
 
-                        <p class="resend-text">Don't receive? <a href="#" class="" id="resend-link">Resend OTP</a></p>
+// Timer countdown function
+let countdownTime = 120; // OTP expires in 1m 52s (112 seconds)
+let timerInterval = setInterval(function () {
+    let minutes = Math.floor(countdownTime / 60);
+    let seconds = countdownTime % 60;
 
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="bt" id="backButton">BACK</button> 
-                            </div>
-                            <div class="col d-flex justify-content-end">
-                                <button type="submit" class="bt">NEXT</button> 
-                            </div>
-                        </div>
-                        
-                    </form>
-                    `;
+    if (seconds < 10) seconds = '0' + seconds;
+    document.getElementById('timer').textContent = `${minutes}m : ${seconds}s`;
+
+    if (countdownTime === 0) {
+        clearInterval(timerInterval);
+        document.getElementById('timer').textContent = 'OTP expired';
+        alert('Your OTP has expired, please request a new one.');
+    }
+    countdownTime--;
+}, 1000);
+
+// Function to simulate OTP resend
+document.getElementById('resend-link').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent the link from doing anything
+
+    // Reset the timer
+    countdownTime = 120;
+    clearInterval(timerInterval); // Stop the current timer
+    timerInterval = setInterval(function () {
+        let minutes = Math.floor(countdownTime / 60);
+        let seconds = countdownTime % 60;
+
+        if (seconds < 10) seconds = '0' + seconds;
+        document.getElementById('timer').textContent = `${minutes}m : ${seconds}s`;
+
+        if (countdownTime === 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timer').textContent = 'OTP expired';
+            alert('Your OTP has expired, please request a new one.');
+        }
+        countdownTime--;
+    }, 1000);
+
+    // Optionally, you can show a message that a new OTP has been sent
+    alert("A new OTP has been sent to your mobile.");
+});
+
+// Function to change to the next step after OTP validation
+function change() {
+    if (validateOTP()) {
+        // Hide OTP box and show the next step (assuming Box4 is your next step)
+        document.getElementById("Box3").classList.add("d-none");
+        document.getElementById("Box4").classList.remove("d-none");
+    }
+}
+
+//otp
+
+function EmailBox() {
+    var Email = document.getElementById("Email").value;
+    var Rece = document.getElementById("Rece").value;
+
+    if (Email === "" || Rece === "") {
+        if (Email === "") {
+            document.getElementById("Emailerror").innerText = "Please enter a valid email address";
+        } else {
+            document.getElementById("Emailerror").innerText = "";
+        }
+
+        if (Rece === "") {
+            document.getElementById("Receerror").innerText = "Please Upload the file";
+        } else {
+            document.getElementById("Receerror").innerText = "";
+        }
+
+        return false; // Prevents form submission
+    } else{
+        document.getElementById("Box4").classList.add("d-none");
+        document.getElementById("Box5").classList.remove("d-none");
+        return false;
+    }
+
+    // If the form is valid, allow submission
+    return true;
+}
+
+function RegisterBox(){
+    var Fname = document.getElementById("Fname").value;
+    var Lname = document.getElementById("Lname").value;
+    var Pword = document.getElementById("Pword").value;
+    var Cpword = document.getElementById("Cpword").value;
+
+    if (Fname === "" || Lname === "" || Pword === "" || Cpword === "") {
+        if (Fname === "") {
+            document.getElementById("Ferror").innerText = "First name is required";
+        } else {
+            document.getElementById("Ferror").innerText = "";
+        }
+
+        if (Lname === "") {
+            document.getElementById("Lerror").innerText = "Last name is required";
+        } else {
+            document.getElementById("Lerror").innerText = "";
+        }
+
+        if (Pword === "") {
+            document.getElementById("Perror").innerText = "Password is required";
+        } else if(Pword.length < 6) {
+            document.getElementById("Perror").innerText = "Password must be at least 6 characters.";
+        } else{
+            document.getElementById("Perror").innerText = "";
+        }
+
+        if (Cpword === "") {
+            document.getElementById("Cperror").innerText = "Password confirmation is required";
+        } else if(Pword !== Cpword) {
+            document.getElementById("Cperror").innerText = "Passwords do not match";
+        } else {
+            document.getElementById("Cperror").innerText = "";
+        }
+
+        return false; 
+    } else{
+        
+    }
+
+    // If the form is valid, allow submission
+    return true;
 }
 
 //  //registation End part
