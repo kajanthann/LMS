@@ -130,126 +130,169 @@ function resetPassword(){
     }
   } 
 
-
-function register() {
-    var btn1 = document.getElementById("btn1");
-    var btn2 = document.getElementById("btn2");
-    var btn3 = document.getElementById("btn3");
-
-    btn1.addEventListener('click', function() {
-        var memId = document.getElementById("membershipID").value;
-        var nic = document.getElementById("NICNumber").value;
-
-        if (memId === "" || nic === "") {
-            if (memId === "") {
-                document.getElementById("memerror").innerText = "Please enter Membership ID";
-            } else {
-                document.getElementById("memerror").innerText = "";
-            }
-    
-            if (nic === "") {
-                document.getElementById("nicnumerror").innerText = "Please enter NIC Number";
-            } else {
-                document.getElementById("nicnumerror").innerText = "";
-            }
-    
-            
-        } else{
-            document.getElementById("Box1").classList.add("d-none");
-            document.getElementById("Box2").classList.remove("d-none");
-            
+//register start 
+function box1(){
+    var memId = document.getElementById("membershipID").value;
+    var nic = document.getElementById("NICNumber").value;
+    if (memId === "" || nic === "") {
+        if (memId === "") {
+            document.getElementById("memerror").innerText = "Please enter Membership ID";
+        } else {
+            document.getElementById("memerror").innerText = "";
         }
-    });
 
-    btn2.addEventListener('click', function() {
-        var address = document.getElementById("address").value;
-        var phoneNumber = document.getElementById("phoneNumber").value;
+        if (nic === "") {
+            document.getElementById("nicnumerror").innerText = "Please enter NIC Number";
+        } else {
+            document.getElementById("nicnumerror").innerText = "";
+        }
 
-        if (address === "" || phoneNumber === "") {
-                    if (address === "") {
-                        document.getElementById("Addresserror").innerText = "Please enter Address";
-                    } else {
-                        document.getElementById("Addresserror").innerText = "";
-                    }
-            
-                    if (phoneNumber === "") {
-                        document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
-                    } else {
-                        document.getElementById("Pnumerror").innerText = "";
-                    }
-            
-                    
-                } else{
-                    document.getElementById("Box2").classList.add("d-none");
-                    document.getElementById("Box3").classList.remove("d-none");
-                    
-                }
-
-    });
-
-    btn3.addEventListener('click', function() {
-        var email = document.getElementById("email").value;
         
-
-                if (email === "") {
-                    if (email === "") {
-                        document.getElementById("Emailerror").innerText = "Please enter a valid email address";
-                    } else {
-                        document.getElementById("Emailerror").innerText = "";
-                    }
-            
-                   
-                } else{
-                    document.getElementById("Box3").classList.add("d-none");
-                    document.getElementById("Box4").classList.remove("d-none");
-                  
-                }
-
-    });
+    } else{
+        document.getElementById("Box1").classList.add("d-none");
+        document.getElementById("Box2").classList.remove("d-none");
+        
+    }
 }
 
-// function RegisterBox(){
-//     var Fname = document.getElementById("Fname").value;
-//     var Lname = document.getElementById("Lname").value;
-//     var Pword = document.getElementById("Pword").value;
-//     var Cpword = document.getElementById("Cpword").value;
+function box2(){
+    var address = document.getElementById("address").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
 
-//     if (Fname === "" || Lname === "" || Pword === "" || Cpword === "") {
-//         if (Fname === "") {
-//             document.getElementById("Ferror").innerText = "First name is required";
-//         } else {
-//             document.getElementById("Ferror").innerText = "";
-//         }
+    if (address === "" || phoneNumber === "") {
+        if (address === "") {
+            document.getElementById("Addresserror").innerText = "Please enter Address";
+        } else {
+            document.getElementById("Addresserror").innerText = "";
+        }
 
-//         if (Lname === "") {
-//             document.getElementById("Lerror").innerText = "Last name is required";
-//         } else {
-//             document.getElementById("Lerror").innerText = "";
-//         }
+        if (phoneNumber === "") {
+            document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
+        } else {
+            document.getElementById("Pnumerror").innerText = "";
+        }
 
-//         if (Pword === "") {
-//             document.getElementById("Perror").innerText = "Password is required";
-//         } else if(Pword.length < 6) {
-//             document.getElementById("Perror").innerText = "Password must be at least 6 characters.";
-//         } else{
-//             document.getElementById("Perror").innerText = "";
-//         }
-
-//         if (Cpword === "") {
-//             document.getElementById("Cperror").innerText = "Password confirmation is required";
-//         } else if(Pword !== Cpword) {
-//             document.getElementById("Cperror").innerText = "Passwords do not match";
-//         } else {
-//             document.getElementById("Cperror").innerText = "";
-//         }
-
-//         return false; 
-//     } else{
         
-//     }
+    } else{
+        document.getElementById("Box2").classList.add("d-none");
+        document.getElementById("Box3").classList.remove("d-none");
+    }
+}
 
-//     // If the form is valid, allow submission
-//     return true;
-// }
+function box3(){
+    
+    var email = document.getElementById("email").value;
+    
 
-//  //registation End part
+    if (email === "") {
+        if (email === "") {
+            document.getElementById("Emailerror").innerText = "Please enter email address";
+        } else {
+            document.getElementById("Emailerror").innerText = "";
+        }
+        
+    } else{
+      
+        var req = new XMLHttpRequest();   
+        req.onreadystatechange = function(){
+           
+            if(req.readyState == 4 && req.status == 200){
+             
+                var resp = req.responseText;
+                alert(resp);
+                if(resp === "Check the email for otp"){
+                    document.getElementById("Box3").classList.add("d-none");
+                    document.getElementById("Box4").classList.remove("d-none");
+                }
+               
+            }
+        }
+
+        req.open("GET", "generate-otp.php?email="+email,true);
+        req.send();
+
+        
+    }
+}
+
+function box4(){
+    var otp1 = document.getElementById("otp1").value;
+    var otp2 = document.getElementById("otp2").value;
+    var otp3 = document.getElementById("otp3").value;
+    var otp4 = document.getElementById("otp4").value;
+    var otp5 = document.getElementById("otp5").value;
+    var otp6 = document.getElementById("otp6").value;
+
+    var userotp = otp1+otp2+otp3+otp4+otp5+otp6;
+
+    var form = new FormData(); 
+    form.append("userotp",userotp);
+
+    var req = new XMLHttpRequest(); 
+    req.onreadystatechange = function(){ 
+        if(req.readyState == 4 && req.status == 200){ 
+            var resp = req.responseText; 
+            if(resp ==='success'){
+                alert(resp);
+                document.getElementById("Box4").classList.add("d-none");
+                document.getElementById("Box5").classList.remove("d-none");
+            }
+        } 
+    } 
+    req.open("POST","otp-varification.php",true); 
+    req.send(form); 
+
+}
+
+function register(){
+
+    var memId = document.getElementById("membershipID").value;
+    var nic = document.getElementById("NICNumber").value;
+    var address = document.getElementById("address").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    var email = document.getElementById("email").value;
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var password = document.getElementById("password").value;
+
+
+                    var form = new FormData(); 
+                    form.append("memID",memId); 
+                    form.append("nic",nic); 
+                    form.append("address",address); 
+                    form.append("phoneNumber",phoneNumber); 
+                    form.append("email",email); 
+                    form.append("fname",fname); 
+                    form.append("lname",lname); 
+                    form.append("password",password); 
+                  
+                    var req = new XMLHttpRequest(); 
+                    req.onreadystatechange = function(){ 
+                        if(req.readyState == 4 && req.status == 200){ 
+                            alert("mm");
+                            var resp = req.responseText; 
+                            if(resp === "success"){ 
+                                alert(resp);
+                                
+                       
+                             } 
+                        } 
+                    }
+                    req.open("POST","register-process.php", true); 
+                    req.send(form); 
+                }
+
+
+function back1(){
+    document.getElementById("Box2").classList.add("d-none");
+    document.getElementById("Box1").classList.remove("d-none");
+}
+function back2(){
+    document.getElementById("Box3").classList.add("d-none");
+    document.getElementById("Box2").classList.remove("d-none");
+}
+function back3(){
+    document.getElementById("Box4").classList.add("d-none");
+    document.getElementById("Box3").classList.remove("d-none");
+}
+//register end

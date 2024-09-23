@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="text-end mt-4">
-                                <button  id="btn1" class="bt text-white" onclick = "register();">NEXT</button>
+                                <button  id="btn1" class="bt text-white" onclick = "box1();">NEXT</button>
                             </div>
                         
                     </div>
@@ -181,10 +181,10 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button type="button" class="bt" id="backButton1">BACK</button> <!-- Back button -->
+                                    <button type="button" class="bt" id="backButton1" onclick = "back1();">BACK</button> <!-- Back button -->
                                 </div>
                                 <div class="col d-flex justify-content-end">
-                                    <button id="btn2" class="bt" onclick = "register();">NEXT</button> <!-- Submit form button -->
+                                    <button id="btn2" class="bt" onclick = "box2();">NEXT</button> <!-- Submit form button -->
                                 </div>
                             </div>
                         
@@ -193,7 +193,7 @@
                     <div id="Box3" class="d-none">
                         <h5 class="mb-1">Enter your <b>Email</b> and upload your <b>Receipt</b> :</h5>
                 
-                        <form action="" id="loginForm" onsubmit="return EmailBox()">
+                        
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="membershipID" class="my-2">Email :</label>
@@ -205,16 +205,16 @@
                                     <input type="file" class="form-control" id="reciept" placeholder="">
                                     <div id="Receerror" class="text-danger"></div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col">
-                                        <button type="button" class="bt" id="backButton3">BACK</button> <!-- Back button -->
+                                        <button type="button" class="bt" id="backButton3" onclick = "back2();">BACK</button> <!-- Back button -->
                                     </div>
                                     <div class="col d-flex justify-content-end">
-                                        <button id="btn3" type="submit"  class="bt">NEXT</button> <!-- Submit form button -->
+                                        <button id="btn3" class="bt" onclick = "box3();">NEXT</button> <!-- Submit form button -->
                                     </div>
                                 </div>
                             </div>    
-                        </form>
+                        
                     </div>
 
                     <div id="Box4" class="d-none">
@@ -222,7 +222,7 @@
                         <p>We have sent an OTP to your mobile number <span class="phone-number">071xxxxxxx</span></p>
                         <p><span class="otp-timer text-warning">OTP expires in <span id="timer">1m : 52s</span></span></p>
     
-                        <form action="" id="loginForm" onsubmit="return validateOTP()">
+                        
                             <div class="otp-inputs d-flex justify-content-between mb-4">
                                 <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp1">
                                 <input type="text" maxlength="1" class="form-control text-center otp-box" id="otp2">
@@ -236,57 +236,57 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <button type="button" class="bt" id="backButton2">BACK</button> <!-- Back button -->
+                                    <button type="button" class="bt" id="backButton2" onclick = "back3();">BACK</button> <!-- Back button -->
                                 </div>
                                 <div class="col d-flex justify-content-end">
-                                    <button id="btn4" type="submit" class="bt" >NEXT</button> <!-- Submit form button -->
+                                    <button id="btn4" class="bt" onclick = "box4();">NEXT</button> <!-- Submit form button -->
                                 </div>
                             </div>
                             
-                        </form>
+                       
                     </div>
 
                     
 
                     <div id="Box5" class="d-none">
-                        <form action="" id="loginForm" onsubmit="return RegisterBox()">
+                       
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="Address" class="my-1">First Name:</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="Enter Address">
+                                    <input type="text" class="form-control" id="fname" placeholder="Enter the first name">
                                     <div id="Ferror" class="text-danger"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="PhoneNumber" class="my-1">Last Name:</label>
-                                    <input type="file" class="form-control" id="lname" placeholder="Enter Phone Number">
+                                    <input type="text" class="form-control" id="lname" placeholder="Enter the last name">
                                     <div id="Lerror" class="text-danger"></div>
                                 </div>
     
                                 <div class="col-md-6">
                                     <label for="Address" class="my-1">Password:</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Enter Address">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter Password">
                                     <div id="Perror" class="text-danger"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="PhoneNumber" class="my-1">Confirm Password:</label>
-                                    <input type="password" class="form-control" id="cpassword" placeholder="Enter Phone Number">
+                                    <input type="password" class="form-control" id="cpassword" placeholder="Confirm password">
                                     <div id="Cperror" class="text-danger"></div>
                                 </div>
                             </div>
     
                             <div>
                                 <input type="checkbox">
-                                <label for="">I agree the thrms and conditions</label>
+                                <label for="">I agree the terms and conditions</label>
                             </div>
     
                             <div class="row text-center">
                                 <div class="col text-white">
-                                    <button id="btn5" type="submit"  class="bt mt-2">Register</button>
+                                    <button id="btn5" class="bt mt-2" onclick="register();">Register</button>
                                     <div>Need help?<a class="txt text-decoration-none" href="">contract us</a></div>
-                                    <div>Already a member? <a class="txt text-decoration-none" href="">login here</a></div>
+                                    <div>Already a member? <a class="txt text-decoration-none" href="login.php">login here</a></div>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>
