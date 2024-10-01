@@ -97,7 +97,7 @@
                             <p>Not registered yet?</p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a href="" class="text-decoration-none create-account">Create an account</a>
+                            <a href="register.php" class="text-decoration-none create-account">Create an account</a>
                         </div>
                     </div>
                 
@@ -112,11 +112,12 @@
     </div>
 
     <?php
-        include "footer.php";
+        include "footer-noscroll.php";
     ?>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-   
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

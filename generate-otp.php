@@ -22,6 +22,11 @@ function generateOTP($length = 6) {
 
 $otp = generateOTP(6);
 
+$rs = Database::search("SELECT * FROM `member` WHERE `email` = '$email'"); 
+$num = $rs->num_rows; 
+if($num > 0){ 
+    echo("User has been already registered with the given email"); 
+}else{ 
 // Store OTP in session
 $_SESSION['otp'] = $otp;
  
@@ -68,3 +73,4 @@ $_SESSION['otp'] = $otp;
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
         } 
    
+    }

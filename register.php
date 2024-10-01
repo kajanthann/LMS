@@ -106,12 +106,12 @@
     ?>
     <!-- Important Notes Section -->
     <div class="text-white p-5 mt-3 Important">
-        <h5 class="text-danger font-weight-bold p-4">Important Notes for <span class="text-dark">Membership Registration:</span></h5>
+        <h5 class="text-danger fw-bold p-4">Important Notes for <span class="text-dark">Membership Registration:</span></h5>
         <ol class="pl-4">
             <li>Visit the Library:</li>
             <li>Pay the Membership Fee:
                 <ul>
-                    <li>Pay the membership fee of <span class="text-success font-weight-bold">RS 1000</span> at the library.</li>
+                    <li>Pay the membership fee of <span class="text-success fw-bold">RS 1000</span> at the library.</li>
                 </ul>
             </li>
             <li>Receive Your Receipt:
@@ -157,9 +157,16 @@
                                     <div id="nicnumerror" class="text-danger"></div>
                                 </div>
                             </div>
-                            <div class="text-end mt-4">
-                                <button  id="btn1" class="bt text-white" onclick = "box1();">NEXT</button>
-                            </div>
+                            
+                                <div>
+                                    <div id="validationerror" class="text-danger"></div>
+                                </div>
+                                <div class="text-end mt-4">
+                                    <button  id="btn1" class="bt text-white" onclick = "box1();">NEXT</button>
+                                </div>
+                            
+                           
+                            
                         
                     </div>
 
@@ -205,10 +212,14 @@
                                     <input type="file" class="form-control" id="reciept" placeholder="">
                                     <div id="Receerror" class="text-danger"></div>
                                 </div>
+                                <div>
+                                    <div id="validationerror2" class="text-danger"></div>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="col">
                                         <button type="button" class="bt" id="backButton3" onclick = "back2();">BACK</button> <!-- Back button -->
                                     </div>
+
                                     <div class="col d-flex justify-content-end">
                                         <button id="btn3" class="bt" onclick = "box3();">NEXT</button> <!-- Submit form button -->
                                     </div>
@@ -300,5 +311,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

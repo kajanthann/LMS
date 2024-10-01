@@ -9,13 +9,15 @@ $email = $_POST["email"];
 $fname = $_POST["fname"]; 
 $lname = $_POST["lname"]; 
 $password = $_POST["password"]; 
- 
 
     $rs = Database::search("SELECT * FROM `member` WHERE `member_id` = '$memID'"); 
     $num = $rs->num_rows; 
     if($num > 0){ 
         echo("User has been already registered with the given membership ID"); 
     }else{ 
+        // $imgPath = "assets/reciepts/" .uniqid().$_FILES["reciept"]["name"];
+        // move_uploaded_file($_FILES["reciept"]["tmp_name"], $imgPath);
+
         Database::iud("INSERT INTO `member`(`member_id`,`nic`,`fname`,`lname`,`mobile`,`address`,`email`,`password`) VALUES 
 ('$memID','$nic','$fname','$lname','$phoneNumber','$address','$email','$password')"); 
         echo("success"); 
