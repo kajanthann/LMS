@@ -44,12 +44,11 @@
             margin: 0;
             padding: 0;
         }
-        .table th.th {
+        .table th {
             background-color: #3f5367;
             color: white;
         }
-        
-        .table td.td {
+        .table td {
             background-color: #e5e7eb;
         }
         .container {
@@ -69,16 +68,16 @@
         <table class="table table-bordered text-center">
             <thead>
                 <tr>
-                    <th class="th">Time</th>
-                    <th class="th">weekdays</th>
-                    <th class="th">weekends</th>
+                    <th>Time</th>
+                    <th>weekdays</th>
+                    <th>weekends</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="td">Opening Hours</a></td>
-                    <td class="td"><?php echo $weekdays_opening_hours; ?></td> <!-- PHP to dynamically insert weekdays opening hours -->
-                    <td class="td"><?php echo $weekends_opening_hours; ?></td> <!-- PHP to dynamically insert weekends opening hours -->
+                    <td>Opening Hours</a></td>
+                    <td><?php echo $weekdays_opening_hours; ?></td> <!-- PHP to dynamically insert weekdays opening hours -->
+                    <td><?php echo $weekends_opening_hours; ?></td> <!-- PHP to dynamically insert weekends opening hours -->
                 </tr>
             </tbody>
         </table>
@@ -86,16 +85,16 @@
         <table class="table table-bordered text-center">
             <thead>
                 <tr>
-                    <th class="th">Book Issuing</th>
-                    <th class="th">weekdays</th>
-                    <th class="th">weekends</th>
+                    <th>Book Issuing</th>
+                    <th>weekdays</th>
+                    <th>weekends</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-primary td">Lending Books</a></td>
-                    <td class="td"><?php echo $weekdays_lending_hours; ?></td> <!-- PHP to dynamically insert weekdays lending hours -->
-                    <td class="td"><?php echo $weekends_lending_hours; ?></td> <!-- PHP to dynamically insert weekends lending hours -->
+                    <td class="text-primary">Lending Books</a></td>
+                    <td><?php echo $weekdays_lending_hours; ?></td> <!-- PHP to dynamically insert weekdays lending hours -->
+                    <td><?php echo $weekends_lending_hours; ?></td> <!-- PHP to dynamically insert weekends lending hours -->
                 </tr>
             </tbody>
         </table>
@@ -103,16 +102,16 @@
         <table class="table table-bordered text-center mb-5">
             <thead>
                 <tr>
-                    <th class="th"></th>
-                    <th class="th">weekdays</th>
-                    <th class="th">weekends</th>
+                    <th></th>
+                    <th>weekdays</th>
+                    <th>weekends</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-primary td">Returning Books</td>
-                    <td class="td"><?php echo $weekdays_returning_hours; ?></td> <!-- PHP to dynamically insert weekdays returning hours -->
-                    <td class="mb-5 td"><?php echo $weekends_returning_hours; ?></td> <!-- PHP to dynamically insert weekends returning hours -->
+                    <td class="text-primary">Returning Books</td>
+                    <td><?php echo $weekdays_returning_hours; ?></td> <!-- PHP to dynamically insert weekdays returning hours -->
+                    <td class="mb-5"><?php echo $weekends_returning_hours; ?></td> <!-- PHP to dynamically insert weekends returning hours -->
                 </tr>
             </tbody>
         </table>
