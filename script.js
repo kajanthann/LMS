@@ -54,13 +54,17 @@ function memberLogin() {
         form.append("username",username);
         form.append("password",password);
         form.append("rememberme", rememberMe.checked);
-    
+      
         var req = new XMLHttpRequest();
         req.onreadystatechange = function(){
+            
             if(req.readyState == 4 && req.status == 200){
                 var resp = req.responseText;
+              
                 if(resp.trim() === "success"){
-                    alert("success");
+                    showAlert("Success", "Login Success", "success").then(() => { 
+                        window.location.reload(); 
+                    });
                     //window.location = "#";
                 }else{
                     document.getElementById("errormsg").innerHTML = resp;
@@ -146,11 +150,28 @@ function box1(){
         } else {
             document.getElementById("nicnumerror").innerText = "";
         }
-
         
     } else{
-        document.getElementById("Box1").classList.add("d-none");
-        document.getElementById("Box2").classList.remove("d-none");
+        var req = new XMLHttpRequest();   
+        req.onreadystatechange = function(){
+           
+            if(req.readyState == 4 && req.status == 200){
+             
+                var resp = req.responseText;
+               
+                if(resp === "success"){
+                    document.getElementById("Box1").classList.add("d-none");
+                    document.getElementById("Box2").classList.remove("d-none");
+                }else{
+                    document.getElementById("validationerror").innerText = resp;
+                }
+               
+            }
+        }
+
+        req.open("GET", "validation-process.php?memberID="+memId+"&nic="+nic,true);
+        req.send();
+        
         
     }
 }
@@ -199,10 +220,13 @@ function box3(){
             if(req.readyState == 4 && req.status == 200){
              
                 var resp = req.responseText;
-                alert(resp);
+               
                 if(resp === "Check the email for otp"){
+                    alert(resp);
                     document.getElementById("Box3").classList.add("d-none");
                     document.getElementById("Box4").classList.remove("d-none");
+                }else{
+                    document.getElementById("validationerror2").innerText = resp;
                 }
                
             }
@@ -233,7 +257,7 @@ function box4(){
         if(req.readyState == 4 && req.status == 200){ 
             var resp = req.responseText; 
             if(resp ==='success'){
-                alert(resp);
+               
                 document.getElementById("Box4").classList.add("d-none");
                 document.getElementById("Box5").classList.remove("d-none");
             }
@@ -251,6 +275,7 @@ function register(){
     var address = document.getElementById("address").value;
     var phoneNumber = document.getElementById("phoneNumber").value;
     var email = document.getElementById("email").value;
+    var reciept = document.getElementById("reciept");
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var password = document.getElementById("password").value;
@@ -262,6 +287,8 @@ function register(){
                     form.append("address",address); 
                     form.append("phoneNumber",phoneNumber); 
                     form.append("email",email); 
+                    form.append("reciept",reciept.files[0]); 
+                  
                     form.append("fname",fname); 
                     form.append("lname",lname); 
                     form.append("password",password); 
@@ -269,10 +296,12 @@ function register(){
                     var req = new XMLHttpRequest(); 
                     req.onreadystatechange = function(){ 
                         if(req.readyState == 4 && req.status == 200){ 
-                            
+                           
                             var resp = req.responseText; 
                             if(resp === "success"){ 
-                                alert(resp);
+                                showAlert("Success", "Successfully Registered", "success").then(() => { 
+                                    window.location.href = "member-login.php"; 
+                                });
                                 
                        
                              } 
@@ -281,7 +310,6 @@ function register(){
                     req.open("POST","register-process.php", true); 
                     req.send(form); 
                 }
-
 
 function back1(){
     document.getElementById("Box2").classList.add("d-none");
@@ -296,3 +324,12 @@ function back3(){
     document.getElementById("Box3").classList.remove("d-none");
 }
 //register end
+
+function showAlert(title, message, type) {
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: type, // 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: 'OK'
+    });
+}
