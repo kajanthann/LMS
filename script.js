@@ -269,7 +269,7 @@ function register(){
                     var req = new XMLHttpRequest(); 
                     req.onreadystatechange = function(){ 
                         if(req.readyState == 4 && req.status == 200){ 
-                            alert("mm");
+                            
                             var resp = req.responseText; 
                             if(resp === "success"){ 
                                 alert(resp);
