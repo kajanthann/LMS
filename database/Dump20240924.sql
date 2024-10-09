@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `member`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `member` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `member_id` varchar(10) NOT NULL,
+  `member_id` varchar(15) NOT NULL,
   `nic` varchar(12) NOT NULL,
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) NOT NULL,

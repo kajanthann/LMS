@@ -9,11 +9,10 @@ $email = $_POST["email"];
 $fname = $_POST["fname"]; 
 $lname = $_POST["lname"]; 
 $password = $_POST["password"]; 
+// Define the pattern for validating the user ID in the format "U-XXXX-XXXX"
+$pattern = "/^U-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}$/"; 
 
-// Define the pattern for validating the user ID
-$pattern = "/^LIBU-[0-9]{4}[0-9]{6}$/"; 
-
-// Check if the membership ID matches the format "LIBU-YYYYXXXXXX"
+// Check if the membership ID matches the format "U-XXXX-XXXX"
 if (preg_match($pattern, $memID)) {
 
     // Check if the member ID already exists
@@ -31,7 +30,6 @@ if (preg_match($pattern, $memID)) {
 
 } else {
     // If the ID does not match the required format
-    echo("Invalid membership ID format. Please use 'LIBU-YYYYXXXXXX' format.");
+    echo("Invalid membership ID format. Please use 'U-XXXX-XXXX' format.");
 }
-
 ?>
