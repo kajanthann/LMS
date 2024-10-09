@@ -131,9 +131,11 @@ function resetPassword(){
   } 
 
 //register start 
-function box1(){
+function box1() {
     var memId = document.getElementById("membershipID").value;
     var nic = document.getElementById("NICNumber").value;
+    var memIdPattern = /^U-\d{4}-\d{4}$/; // Adjust this pattern to match your required ID format
+
     if (memId === "" || nic === "") {
         if (memId === "") {
             document.getElementById("memerror").innerText = "Please enter Membership ID";
@@ -147,11 +149,12 @@ function box1(){
             document.getElementById("nicnumerror").innerText = "";
         }
 
-        
-    } else{
+    } else if (!memIdPattern.test(memId)) {
+        document.getElementById("memerror").innerText = "Invalid Membership ID format. Expected format: U-XXXX-XXXX";
+    } else {
+        document.getElementById("memerror").innerText = "";
         document.getElementById("Box1").classList.add("d-none");
         document.getElementById("Box2").classList.remove("d-none");
-        
     }
 }
 
