@@ -296,3 +296,20 @@ function back3(){
     document.getElementById("Box3").classList.remove("d-none");
 }
 //register end
+
+
+//dash-board header script
+
+const prof = document.getElementById("prof");
+const signup = document.getElementById('signup');
+
+
+// Add event listener to toggle dropdown visibility
+prof.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (signup.style.display === "none") {
+        signup.style.display = "block";
+    } else {
+        signup.style.display = "none";
+    }
+});
