@@ -313,3 +313,20 @@ prof.addEventListener('click', function(event) {
         signup.style.display = "none";
     }
 });
+
+//dash_board toggler js
+
+const tog = document.getElementById("tog");
+const sidepanel = document.getElementById("sidepanel");
+
+const style = window.getComputedStyle(sidepanel);
+
+tog.addEventListener("click",function(event){
+        if(sidepanel.style.display === "none"){
+            sidepanel.style.display = "block";
+        }
+        else{
+            sidepanel.style.display = "none";
+        }
+});
+

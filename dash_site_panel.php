@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="dash.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+#sidepanel {
+    display: block; 
+}
+
+@media (max-width: 992px) {
+    #sidepanel {
+        display: none;
+    }
+}
+
+    </style>
 </head>
 <body>
 
-    <div class=" bg-dark text-white" style="width: 250px; height: 100vh;">
+    <div id="sidepanel" class=" bg-dark text-white" style="width: 250px; height: 100vh;">
 
         <a href="#" class="nav-link text-white py-2 border-bottom align-items-center">
             <img class="m-2" src="img/use.jpg" style="width: 20%; border-radius: 50%;"  alt=""></i>Librarian Name
