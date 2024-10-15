@@ -57,9 +57,6 @@
             </div>
         </div>
     </header>
-    <?php
-        include "dash_site_panel.php";
-    ?>
     <script src="script.js"></script>
 </body>
 </html>
