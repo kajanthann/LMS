@@ -60,7 +60,9 @@ function memberLogin() {
             if(req.readyState == 4 && req.status == 200){
                 var resp = req.responseText;
                 if(resp.trim() === "success"){
-                    alert("success");
+                    showAlert("Success", "Login Success", "success").then(() => { 
+                        window.location.reload(); 
+                    });
                     //window.location = "#";
                 }else{
                     document.getElementById("errormsg").innerHTML = resp;
@@ -150,13 +152,32 @@ function box1() {
         }
 
     } else if (!memIdPattern.test(memId)) {
-        document.getElementById("memerror").innerText = "Invalid Membership ID format. Expected format: U-XXXX-XXXX";
+        document.getElementById("memerror").innerText = "Invalid Membership ID format.\n Expected format: U-XXXX-XXXX";
     } else {
-        document.getElementById("memerror").innerText = "";
-        document.getElementById("Box1").classList.add("d-none");
-        document.getElementById("Box2").classList.remove("d-none");
+        var req = new XMLHttpRequest();   
+        req.onreadystatechange = function(){
+           
+            if(req.readyState == 4 && req.status == 200){
+             
+                var resp = req.responseText;
+               
+                if(resp === "success"){
+                    document.getElementById("memerror").innerText = "";
+                    document.getElementById("Box1").classList.add("d-none");
+                    document.getElementById("Box2").classList.remove("d-none");
+                }else{
+                    document.getElementById("validationerror").innerText = resp;
+                }
+               
+            }
+        }
+
+        req.open("GET", "validation-process.php?memberID="+memId+"&nic="+nic,true);
+        req.send();
     }
 }
+
+
 
 function box2(){
     var address = document.getElementById("address").value;
@@ -272,10 +293,12 @@ function register(){
                     var req = new XMLHttpRequest(); 
                     req.onreadystatechange = function(){ 
                         if(req.readyState == 4 && req.status == 200){ 
-                            alert("mm");
+                            
                             var resp = req.responseText; 
                             if(resp === "success"){ 
-                                alert(resp);
+                                showAlert("Success", "Successfully Registered", "success").then(() => { 
+                                    window.location.href = "member-login.php"; 
+                                });
                                 
                        
                              } 
@@ -299,3 +322,12 @@ function back3(){
     document.getElementById("Box3").classList.remove("d-none");
 }
 //register end
+
+function showAlert(title, message, type) {
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: type, // 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: 'OK'
+    });
+}
