@@ -139,6 +139,7 @@ function box1() {
     var memIdPattern = /^U-\d{4}-\d{4}$/; // Adjust this pattern to match your required ID format
 
     if (memId === "" || nic === "") {
+       
         if (memId === "") {
             document.getElementById("memerror").innerText = "Please enter Membership ID";
         } else {
@@ -152,20 +153,24 @@ function box1() {
         }
 
     } else if (!memIdPattern.test(memId)) {
+       
         document.getElementById("memerror").innerText = "Invalid Membership ID format.\n Expected format: U-XXXX-XXXX";
     } else {
+      
         var req = new XMLHttpRequest();   
         req.onreadystatechange = function(){
            
             if(req.readyState == 4 && req.status == 200){
              
                 var resp = req.responseText;
-               
-                if(resp === "success"){
+             
+                if (resp.trim() === "success"){
+              
                     document.getElementById("memerror").innerText = "";
                     document.getElementById("Box1").classList.add("d-none");
                     document.getElementById("Box2").classList.remove("d-none");
                 }else{
+                   
                     document.getElementById("validationerror").innerText = resp;
                 }
                
@@ -279,7 +284,6 @@ function register(){
     var lname = document.getElementById("lname").value;
     var password = document.getElementById("password").value;
 
-
                     var form = new FormData(); 
                     form.append("memID",memId); 
                     form.append("nic",nic); 
@@ -295,12 +299,11 @@ function register(){
                         if(req.readyState == 4 && req.status == 200){ 
                             
                             var resp = req.responseText; 
-                            if(resp === "success"){ 
+                            if(resp.trim() === "success"){ 
                                 showAlert("Success", "Successfully Registered", "success").then(() => { 
                                     window.location.href = "member-login.php"; 
                                 });
                                 
-                       
                              } 
                         } 
                     }

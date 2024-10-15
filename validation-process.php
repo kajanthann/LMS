@@ -13,3 +13,4 @@ $nic = $_GET["nic"];
     }else{ 
         echo("success"); 
     } 
+    ?>
