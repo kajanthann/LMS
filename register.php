@@ -157,8 +157,7 @@
                                     <div id="nicnumerror" class="text-danger"></div>
                                 </div>
                             </div>
-                            
-                                <div>
+                            <div>
                                     <div id="validationerror" class="text-danger"></div>
                                 </div>
                                 <div class="text-end mt-4">

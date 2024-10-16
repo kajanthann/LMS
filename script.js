@@ -1,3 +1,9 @@
+// Function to validate the password pattern
+function isValidPassword(password) {
+    // Regular expression for password validation
+    var pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/;
+    return pattern.test(password);
+}
 function staffLogin() {
 
     var username = document.getElementById('username').value.trim();
@@ -10,7 +16,10 @@ function staffLogin() {
         document.getElementById('usernameError').innerText = 'Username is required.';
     }else if(password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-    } else{
+    }else if (!isValidPassword(password)) {
+        document.getElementById('passwordError').innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    }  
+    else{
         var form = new FormData();
         form.append("username",username);
         form.append("password",password);
@@ -49,7 +58,10 @@ function memberLogin() {
         document.getElementById('usernameError').innerText = 'Username is required.';
     }else if (password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-    }else{
+    }else if (!isValidPassword(password)) {
+        document.getElementById('passwordError').innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    } 
+    else{
         var form = new FormData();
         form.append("username",username);
         form.append("password",password);
@@ -75,6 +87,7 @@ function memberLogin() {
         req.send(form);
     }   
 }
+
 
 function forgotPassword(){
     var email = document.getElementById('email').value;
@@ -109,7 +122,10 @@ function resetPassword(){
         cpwError.innerText = 'Password confirmation is required.';
     } else if (pw !== cpw) {
         pwError.innerText = 'Passwords do not match.';
-    } else {
+    }else if (!isValidPassword(pw)) {
+        pwError.innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    } 
+     else {
         var pw = document.getElementById("pw").value; 
         var cpw = document.getElementById("cpw").value; 
         var vcode = document.getElementById("vcode").innerHTML; 
