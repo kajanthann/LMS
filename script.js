@@ -326,6 +326,38 @@ function back3(){
 }
 //register end
 
+//dash-board header script
+
+const prof = document.getElementById("prof");
+const signup = document.getElementById('signup');
+
+// Add event listener to toggle dropdown visibility
+prof.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (signup.style.display === "none") {
+        signup.style.display = "block";
+    } else {
+        signup.style.display = "none";
+    }
+});
+
+//dash_board toggler js
+
+const tog = document.getElementById("tog");
+const sidepanel = document.getElementById("sidepanel");
+
+const style = window.getComputedStyle(sidepanel);
+
+tog.addEventListener("click",function(event){
+        if(sidepanel.style.display === "none"){
+            sidepanel.style.display = "block";
+        }
+        else{
+            sidepanel.style.display = "none";
+        }
+});
+
+// showAlert function for alerts
 function showAlert(title, message, type) {
     Swal.fire({
         title: title,
