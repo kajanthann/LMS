@@ -60,7 +60,9 @@ function memberLogin() {
             if(req.readyState == 4 && req.status == 200){
                 var resp = req.responseText;
                 if(resp.trim() === "success"){
-                    alert("success");
+                    showAlert("Success", "Login Success", "success").then(() => { 
+                        window.location.reload(); 
+                    });
                     //window.location = "#";
                 }else{
                     document.getElementById("errormsg").innerHTML = resp;
@@ -131,10 +133,13 @@ function resetPassword(){
   } 
 
 //register start 
-function box1(){
+function box1() {
     var memId = document.getElementById("membershipID").value;
     var nic = document.getElementById("NICNumber").value;
+    var memIdPattern = /^U-\d{4}-\d{4}$/; // Adjust this pattern to match your required ID format
+
     if (memId === "" || nic === "") {
+       
         if (memId === "") {
             document.getElementById("memerror").innerText = "Please enter Membership ID";
         } else {
@@ -147,13 +152,37 @@ function box1(){
             document.getElementById("nicnumerror").innerText = "";
         }
 
-        
-    } else{
-        document.getElementById("Box1").classList.add("d-none");
-        document.getElementById("Box2").classList.remove("d-none");
-        
+    } else if (!memIdPattern.test(memId)) {
+       
+        document.getElementById("memerror").innerText = "Invalid Membership ID format.\n Expected format: U-XXXX-XXXX";
+    } else {
+      
+        var req = new XMLHttpRequest();   
+        req.onreadystatechange = function(){
+           
+            if(req.readyState == 4 && req.status == 200){
+             
+                var resp = req.responseText;
+             
+                if (resp.trim() === "success"){
+              
+                    document.getElementById("memerror").innerText = "";
+                    document.getElementById("Box1").classList.add("d-none");
+                    document.getElementById("Box2").classList.remove("d-none");
+                }else{
+                   
+                    document.getElementById("validationerror").innerText = resp;
+                }
+               
+            }
+        }
+
+        req.open("GET", "validation-process.php?memberID="+memId+"&nic="+nic,true);
+        req.send();
     }
 }
+
+
 
 function box2(){
     var address = document.getElementById("address").value;
@@ -255,7 +284,6 @@ function register(){
     var lname = document.getElementById("lname").value;
     var password = document.getElementById("password").value;
 
-
                     var form = new FormData(); 
                     form.append("memID",memId); 
                     form.append("nic",nic); 
@@ -269,12 +297,13 @@ function register(){
                     var req = new XMLHttpRequest(); 
                     req.onreadystatechange = function(){ 
                         if(req.readyState == 4 && req.status == 200){ 
-                            alert("mm");
+                            
                             var resp = req.responseText; 
-                            if(resp === "success"){ 
-                                alert(resp);
+                            if(resp.trim() === "success"){ 
+                                showAlert("Success", "Successfully Registered", "success").then(() => { 
+                                    window.location.href = "member-login.php"; 
+                                });
                                 
-                       
                              } 
                         } 
                     }
@@ -297,12 +326,10 @@ function back3(){
 }
 //register end
 
-
 //dash-board header script
 
 const prof = document.getElementById("prof");
 const signup = document.getElementById('signup');
-
 
 // Add event listener to toggle dropdown visibility
 prof.addEventListener('click', function(event) {
@@ -330,3 +357,12 @@ tog.addEventListener("click",function(event){
         }
 });
 
+// showAlert function for alerts
+function showAlert(title, message, type) {
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: type, // 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: 'OK'
+    });
+}
