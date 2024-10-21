@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <div id="sidepanel" class=" bg-dark text-white" style="width: 250px; height: 100vh;">
+    <div id="sidepanel" class=" bg-dark text-white" style="width: 250px; height: 100%;">
 
         <a href="#" class="nav-link text-white py-2 border-bottom align-items-center">
             <img class="m-2" src="img/use.jpg" style="width: 20%; border-radius: 50%;"  alt=""></i>Librarian Name
