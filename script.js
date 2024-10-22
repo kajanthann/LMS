@@ -289,8 +289,7 @@ function box4(){
 
 }
 
-function register(){
-
+function register() {
     var memId = document.getElementById("membershipID").value;
     var nic = document.getElementById("NICNumber").value;
     var address = document.getElementById("address").value;
@@ -300,32 +299,51 @@ function register(){
     var lname = document.getElementById("lname").value;
     var password = document.getElementById("password").value;
 
-                    var form = new FormData(); 
-                    form.append("memID",memId); 
-                    form.append("nic",nic); 
-                    form.append("address",address); 
-                    form.append("phoneNumber",phoneNumber); 
-                    form.append("email",email); 
-                    form.append("fname",fname); 
-                    form.append("lname",lname); 
-                    form.append("password",password); 
-                  
-                    var req = new XMLHttpRequest(); 
-                    req.onreadystatechange = function(){ 
-                        if(req.readyState == 4 && req.status == 200){ 
-                            
-                            var resp = req.responseText; 
-                            if(resp.trim() === "success"){ 
-                                showAlert("Success", "Successfully Registered", "success").then(() => { 
-                                    window.location.href = "member-login.php"; 
-                                });
-                                
-                             } 
-                        } 
-                    }
-                    req.open("POST","register-process.php", true); 
-                    req.send(form); 
-                }
+    // Regular expression patterns for phone number and password
+    var phonePattern = /^(07\d{8}|(\+94)7\d{8})$/; // Validates phone numbers starting with '07' or '+947' followed by 8 digits
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/; // At least one uppercase letter, one lowercase letter, one digit, and minimum 5 characters
+
+    // Validate phone number
+    if (!phonePattern.test(phoneNumber)) {
+        showAlert("Error", "Invalid phone number. It must be 10 digits starting with '07' or 11 digits starting with '+947'.", "error");
+        return; // Stop execution if the phone number is invalid
+    }
+
+    // Validate password
+    if (!passwordPattern.test(password)) {
+        showAlert("Error", "Invalid password. It must be at least 5 characters long, and include at least one uppercase letter, one lowercase letter, and one number.", "error");
+        return; // Stop execution if the password is invalid
+    }
+
+    var form = new FormData(); 
+    form.append("memID", memId); 
+    form.append("nic", nic); 
+    form.append("address", address); 
+    form.append("phoneNumber", phoneNumber); 
+    form.append("email", email); 
+    form.append("fname", fname); 
+    form.append("lname", lname); 
+    form.append("password", password); 
+
+    var req = new XMLHttpRequest(); 
+    req.onreadystatechange = function() { 
+        if (req.readyState == 4 && req.status == 200) {
+            var resp = req.responseText.trim();
+
+            if (resp === "success") { 
+                showAlert("Success", "Successfully Registered", "success").then(() => { 
+                    window.location.href = "member-login.php"; 
+                });
+            } else {
+                // Display error messages returned by the server
+                showAlert("Error", resp, "error");
+            }
+        }
+    };
+    req.open("POST", "register-process.php", true); 
+    req.send(form); 
+}
+
 
 
 function back1(){

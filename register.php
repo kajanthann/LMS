@@ -159,6 +159,7 @@
                             </div>
                             <div>
                                     <div id="validationerror" class="text-danger"></div>
+
                                 </div>
                                 <div class="text-end mt-4">
                                     <button  id="btn1" class="bt text-white" onclick = "box1();">NEXT</button>
