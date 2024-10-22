@@ -256,25 +256,25 @@
                        
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="Address" class="my-1">First Name:</label>
+                                    <label for="fname" class="my-1">First Name:</label>
                                     <input type="text" class="form-control" id="fname" placeholder="Enter the first name">
-                                    <div id="Ferror" class="text-danger"></div>
+                                   
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="PhoneNumber" class="my-1">Last Name:</label>
+                                    <label for="lname" class="my-1">Last Name:</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Enter the last name">
-                                    <div id="Lerror" class="text-danger"></div>
+                                   
                                 </div>
     
                                 <div class="col-md-6">
-                                    <label for="Address" class="my-1">Password:</label>
+                                    <label for="password" class="my-1">Password:</label>
                                     <input type="password" class="form-control" id="password" placeholder="Enter Password">
-                                    <div id="Perror" class="text-danger"></div>
+                                    <div id="perror" class="text-danger"></div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="PhoneNumber" class="my-1">Confirm Password:</label>
+                                    <label for="cpassword" class="my-1">Confirm Password:</label>
                                     <input type="password" class="form-control" id="cpassword" placeholder="Confirm password">
-                                    <div id="Cperror" class="text-danger"></div>
+                                    <div id="cperror" class="text-danger"></div>
                                 </div>
                             </div>
     
