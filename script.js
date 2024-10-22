@@ -1,3 +1,9 @@
+// Function to validate the password pattern
+function isValidPassword(password) {
+    // Regular expression for password validation
+    var pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/;
+    return pattern.test(password);
+}
 function staffLogin() {
 
     var username = document.getElementById('username').value.trim();
@@ -10,7 +16,10 @@ function staffLogin() {
         document.getElementById('usernameError').innerText = 'Username is required.';
     }else if(password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-    } else{
+    }else if (!isValidPassword(password)) {
+        document.getElementById('passwordError').innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    }  
+    else{
         var form = new FormData();
         form.append("username",username);
         form.append("password",password);
@@ -49,7 +58,10 @@ function memberLogin() {
         document.getElementById('usernameError').innerText = 'Username is required.';
     }else if (password === '') {
         document.getElementById('passwordError').innerText = 'Password is required.';
-    }else{
+    }else if (!isValidPassword(password)) {
+        document.getElementById('passwordError').innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    } 
+    else{
         var form = new FormData();
         form.append("username",username);
         form.append("password",password);
@@ -75,6 +87,7 @@ function memberLogin() {
         req.send(form);
     }   
 }
+
 
 function forgotPassword(){
     var email = document.getElementById('email').value;
@@ -109,7 +122,10 @@ function resetPassword(){
         cpwError.innerText = 'Password confirmation is required.';
     } else if (pw !== cpw) {
         pwError.innerText = 'Passwords do not match.';
-    } else {
+    }else if (!isValidPassword(pw)) {
+        pwError.innerText = 'Password must be at least 5 characters long, including at least one uppercase letter, one lowercase letter, and one number.';
+    } 
+     else {
         var pw = document.getElementById("pw").value; 
         var cpw = document.getElementById("cpw").value; 
         var vcode = document.getElementById("vcode").innerHTML; 
@@ -185,43 +201,38 @@ function box1() {
 
 
 function box2(){
+    var phonePattern = /^(07\d{8}|(\+94)7\d{8})$/; // Validates phone numbers starting with '07' or '+947' followed by 8 digits
+
     var address = document.getElementById("address").value;
     var phoneNumber = document.getElementById("phoneNumber").value;
 
-    if (address === "" || phoneNumber === "") {
-        if (address === "") {
-            document.getElementById("Addresserror").innerText = "Please enter Address";
-        } else {
-            document.getElementById("Addresserror").innerText = "";
-        }
-
-        if (phoneNumber === "") {
-            document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
-        } else {
-            document.getElementById("Pnumerror").innerText = "";
-        }
-
-        
-    } else{
+    if (address === "") {
+        document.getElementById("Addresserror").innerText = "Please enter Address";
+    }
+    else if (phoneNumber === "") {
+        document.getElementById("Addresserror").innerText = "";
+        document.getElementById("Pnumerror").innerText = "Please enter Phone Number";
+    } else  if (!phonePattern.test(phoneNumber)) { // Validate phone number
+        document.getElementById("Pnumerror").innerText="Invalid phone number. It must be 10 digits starting with '07' or 11 digits starting with '+947'.";
+   }else{
         document.getElementById("Box2").classList.add("d-none");
         document.getElementById("Box3").classList.remove("d-none");
-    }
+    } 
 }
 
 function box3(){
     
     var email = document.getElementById("email").value;
-    
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (email === "") {
+  
         if (email === "") {
             document.getElementById("Emailerror").innerText = "Please enter email address";
-        } else {
-            document.getElementById("Emailerror").innerText = "";
-        }
-        
+        } else if (!emailPattern.test(email)) {
+            document.getElementById("Emailerror").innerText = "Invalid Email";
+       
     } else{
-      
+        document.getElementById("Emailerror").innerText = "";
         var req = new XMLHttpRequest();   
         req.onreadystatechange = function(){
            
@@ -262,7 +273,7 @@ function box4(){
         if(req.readyState == 4 && req.status == 200){ 
             var resp = req.responseText; 
             if(resp ==='success'){
-                alert(resp);
+             
                 document.getElementById("Box4").classList.add("d-none");
                 document.getElementById("Box5").classList.remove("d-none");
             }
@@ -273,8 +284,7 @@ function box4(){
 
 }
 
-function register(){
-
+function register() {
     var memId = document.getElementById("membershipID").value;
     var nic = document.getElementById("NICNumber").value;
     var address = document.getElementById("address").value;
@@ -283,33 +293,51 @@ function register(){
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var password = document.getElementById("password").value;
+    var cpassword = document.getElementById("cpassword").value;
 
-                    var form = new FormData(); 
-                    form.append("memID",memId); 
-                    form.append("nic",nic); 
-                    form.append("address",address); 
-                    form.append("phoneNumber",phoneNumber); 
-                    form.append("email",email); 
-                    form.append("fname",fname); 
-                    form.append("lname",lname); 
-                    form.append("password",password); 
-                  
-                    var req = new XMLHttpRequest(); 
-                    req.onreadystatechange = function(){ 
-                        if(req.readyState == 4 && req.status == 200){ 
-                            
-                            var resp = req.responseText; 
-                            if(resp.trim() === "success"){ 
-                                showAlert("Success", "Successfully Registered", "success").then(() => { 
-                                    window.location.href = "member-login.php"; 
-                                });
-                                
-                             } 
-                        } 
-                    }
-                    req.open("POST","register-process.php", true); 
-                    req.send(form); 
-                }
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/; // At least one uppercase letter, one lowercase letter, one digit, and minimum 5 characters
+
+    if(password === ""){
+        document.getElementById("perror").innerText = "Please Enter the password";
+    }// Validate password
+    else if (!passwordPattern.test(password)) {
+        document.getElementById("perror").innerText = "Invalid password. It must be at least 5 characters long, and include at least one uppercase letter, one lowercase letter, and one number.";  
+    }else if (password != cpassword){
+        document.getElementById("cperror").innerText = "Password does not match";
+        document.getElementById("perror").innerText = "";
+    
+    }else{
+        document.getElementById("cperror").innerText = "";
+
+    var form = new FormData(); 
+    form.append("memID", memId); 
+    form.append("nic", nic); 
+    form.append("address", address); 
+    form.append("phoneNumber", phoneNumber); 
+    form.append("email", email); 
+    form.append("fname", fname); 
+    form.append("lname", lname); 
+    form.append("password", password); 
+
+    var req = new XMLHttpRequest(); 
+    req.onreadystatechange = function() { 
+        if (req.readyState == 4 && req.status == 200) {
+            var resp = req.responseText.trim();
+
+            if (resp === "success") { 
+                alert(resp);
+                // showAlert("Success", "Successfully Registered", "success");
+            } else {
+                // Display error messages returned by the server
+                showAlert("Error", resp, "error");
+            }
+        }
+    };
+    req.open("POST", "register-process.php", true); 
+    req.send(form); 
+}
+}
+
 
 
 function back1(){
@@ -345,7 +373,6 @@ prof.addEventListener('click', function(event) {
 
 const tog = document.getElementById("tog");
 const sidepanel = document.getElementById("sidepanel");
-
 const style = window.getComputedStyle(sidepanel);
 
 tog.addEventListener("click",function(event){
