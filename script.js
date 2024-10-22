@@ -393,3 +393,21 @@ function showAlert(title, message, type) {
         confirmButtonText: 'OK'
     });
 }
+
+//dash_board_change_password
+function dashboard_change_password(event){
+
+    if (event) {
+        event.preventDefault();
+    }
+    const box1 = document.getElementById("box1");
+    const box2 = document.getElementById("box2");
+    
+    if(box1.style.display === "none"){
+        box1.style.display = "block";  
+        box2.style.display = "none"; 
+    } else {
+        box1.style.display = "none";
+        box2.style.display = "block";
+    }
+}
